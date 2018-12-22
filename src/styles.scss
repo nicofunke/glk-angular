@@ -1,1 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    font-family:     Open_Sans, Verdana,Arial,Courier;
+}
+
+/**
+ * Colors
+ **/
+$color-blue: #2176FF;
+$color-green: #2FBF71;
+$color-orange: #D74E09;
+$color-yellow: #F2BB05;
+$color-eggshell: #F0F0C9;
+
+ $color-gray-9: #D2D2D2;
+ $color-gray-8: #BCBCBC;
+ $color-gray-7: #A6A6A6;
+ $color-gray-6: #909090;
+ $color-gray-5: #7A7A7A;
+ $color-gray-4: #646464;
+ $color-gray-3: #4E4E4E;
+ $color-gray-2: #383838;
+ $color-gray-1: #222222;
+ $color-gray-0: #0C0C0C;
+
+/**
+ * Font sizes
+ **/
+ $font-size-tiny: 8px;
+ $font-size-smaller: 12px;
+ $font-size-small: 14px;
+ $font-size-regular: 16px;
+ $font-size-medium: 18px;
+ $font-size-big: 24px;
+ $font-size-bigger: 28px;
+ $font-size-biggest: 34px;
+ $font-size-huge: 44px;
+
+ /**
+  * Fonts
+  */
+  @font-face { font-family: 'Open_Sans';
+    src: url('~src/assets/fonts/Open_Sans/OpenSans-Regular.ttf') format('truetype'); }
+@font-face { font-family: 'merriweather';
+    src: url('~src/assets/fonts/Open_Sans/OpenSans-Italic.ttf') format('truetype');
+    font-style: italic; }
+@font-face { font-family: 'Open_Sans';
+    src: url('~src/assets/fonts/Open_Sans/OpenSans-Bold.ttf') format('truetype');
+    font-weight: bold; }
+@font-face { font-family: 'Open_Sans';
+    src: url('~src/assets/fonts/Open_Sans/OpenSans-Bolditalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic; }

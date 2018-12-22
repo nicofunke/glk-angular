@@ -1,10 +1,18 @@
 import { Component } from '@angular/core';
+import { MobileService } from './mobile.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
-  title = 'glk-angular';
+
+  onResize(event) {
+    this.mobileService.updateState();
+  }
+
+  constructor(public mobileService: MobileService) { }
+
 }
