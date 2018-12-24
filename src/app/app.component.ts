@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
-import { MobileService } from './mobile.service';
+import { Component } from "@angular/core";
+import { MobileService } from "./services/mobile.service";
+import { TopImgComponent } from './components/top-img/top-img.component';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"]
 })
 
 export class AppComponent {

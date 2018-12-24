@@ -1,0 +1,22 @@
+/**
+ * Variables
+ */
+ $img-size-desktop: 500px;
+ $img-size-mobile: 200px;
+
+ /**
+  * Elements
+  */
+  div.top-img-container {
+      max-height: $img-size-desktop;
+      overflow: hidden;
+      
+      div.top-img-inner-container{
+        margin: -8px;
+    }
+
+      img {
+        filter: blur(4px);
+        width: 100%;
+    }
+  }

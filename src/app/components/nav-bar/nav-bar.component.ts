@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { MobileService } from "../mobile.service";
+import { MobileService } from "../../services/mobile.service";
 
 @Component({
   selector: "glk-nav-bar",
