@@ -7,10 +7,10 @@ $logo-height: 90px;
 $logo-left: 10px;
 $item-padding: 4px 0px 4px 0px;
 $item-margin: 15px 15px;
-$border-bottom-height: 6px;
 $item-min-width: 0px;
+$item-transition: 300ms ease-in-out;
 $navbar-background: linear-gradient( rgba($color-gray-9, 0.75), rgba($color-gray-9,0.65));
-// $navbar-background: none;
+
 
  /**
   * Elements
@@ -20,7 +20,6 @@ div#nav-bar-container {
     height: $navbar-height;
     background-image: $navbar-background;
     color: $color-gray-3;
-    // border-bottom: $border-bottom-height solid $color-gray-5;
 
     img#nav-bar-logo {
         height: $logo-height;
@@ -36,51 +35,35 @@ div#nav-bar-container {
         flex-wrap: nowrap;
         justify-content: center;
         align-items: flex-end;
-        margin-bottom: -$border-bottom-height;
         height: $navbar-height;    
     }
-
 }
-
-
 
 div.nav-bar-item {
     min-width: $item-min-width;
     padding: $item-padding;
     margin: $item-margin;
-    // border-bottom: $border-bottom-height solid $color-gray-5;
-
     font-size: $font-size-regular;
     text-align: center;
-
-    transition: 300ms ease-in-out;
+    transition: $item-transition;
 
     &:hover {
-        cursor: pointer;
-        // border-bottom: $border-bottom-height solid $color-gray-9;
-        // text-decoration: underline;
-        // text-decoration-color: red;
-        
+        cursor: pointer;        
         color: $color-gray-2;
-        transition: 300ms ease-in-out;
+        transition: $item-transition;
         text-shadow: 1px 1px 2px $color-gray-5;
     }
 
-    
     &:nth-child(1):hover {
-        // text-decoration-color: $color-green;
         box-shadow: inset 0 0px 0 white, inset 0 -2px 0 $color-blue;
     }
     &:nth-child(2):hover {
-        // text-decoration-color: $color-blue;
         box-shadow: inset 0 0px 0 white, inset 0 -2px 0 $color-orange;
     }
     &:nth-child(3):hover {
-        // text-decoration-color: $color-yellow;
         box-shadow: inset 0 0px 0 white, inset 0 -2px 0 $color-green;
     }
     &:nth-child(4):hover {
-        // text-decoration-color: $color-orange;
         box-shadow: inset 0 0px 0 white, inset 0 -2px 0 $color-yellow;
     }
 }
