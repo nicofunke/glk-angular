@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 
 @Component({
   selector: "glk-top-img",
@@ -7,9 +7,11 @@ import { Component, OnInit } from "@angular/core";
 })
 export class TopImgComponent implements OnInit {
 
+  @Input() title: string;
+  @Input() picture: string;
+
   constructor() { }
 
   ngOnInit() {
   }
-
 }

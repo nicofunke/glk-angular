@@ -2,6 +2,7 @@
 body {
     margin: 0;
     font-family:     Open_Sans, Verdana,Arial,Courier;
+    overflow-y: scroll;
 }
 
 /**
@@ -34,12 +35,12 @@ $color-eggshell: #F0F0C9;
  $font-size-medium: 18px;
  $font-size-big: 24px;
  $font-size-bigger: 28px;
- $font-size-biggest: 34px;
- $font-size-huge: 44px;
+ $font-size-biggest: 32px;
+ $font-size-huge: 55px;
 
  /**
   * Fonts
-  */
+  **/
   @font-face { font-family: 'Open_Sans';
     src: url('~src/assets/fonts/Open_Sans/OpenSans-Regular.ttf') format('truetype'); }
 @font-face { font-family: 'merriweather';
@@ -52,3 +53,60 @@ $color-eggshell: #F0F0C9;
     src: url('~src/assets/fonts/Open_Sans/OpenSans-Bolditalic.ttf') format('truetype');
     font-weight: bold;
     font-style: italic; }
+
+/**
+ * Basic Elements
+ **/
+ // Links
+ $link-underline-color: $color-blue;
+ a{
+    color: inherit;
+    text-decoration: none;
+    box-shadow: inset 0 0px 0 white, inset 0 -1px 0 $link-underline-color;
+    position: relative;
+  }
+
+a::after{
+    content: "";
+    width: 100%;
+    height: 0px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    transition: all 300ms ease-in-out;
+    mix-blend-mode: overlay;
+    background-color: rgba( $link-underline-color, 0.4);
+}
+  
+a:hover::after{
+    height: 100%;
+}
+
+*:focus {
+    outline:0;  // Remove blue border in chrome
+}
+
+//headlines
+h1 {
+    font-size: $font-size-huge;
+    font-weight: 500;
+}
+
+h2 {
+    font-size: $font-size-biggest;
+    font-weight: 600;
+}
+
+div.text-container {
+    max-width: 750px;
+    margin: auto;
+    line-height: 1.75em;
+    padding: 30px;
+    padding-top: 10px;
+    font-size: $font-size-regular;
+
+    h2 {
+        margin-bottom: 20px;
+        margin-top: 30px;
+    }
+}

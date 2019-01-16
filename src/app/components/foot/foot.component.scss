@@ -1,0 +1,24 @@
+@import "~src/styles.scss";
+
+/**
+ * Variables
+ **/
+
+$foot-background: linear-gradient( rgba($color-gray-9, 0.75), rgba($color-gray-9,0.65));
+
+div.footer-container {
+    width: 100vw;
+    background-image: $foot-background;
+    padding: 8px;
+    color: $color-gray-2;
+    font-size: $font-size-small;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+
+    div {
+        width: 20px;
+    }
+}

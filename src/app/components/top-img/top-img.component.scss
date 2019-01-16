@@ -4,43 +4,47 @@
  * Variables
  */
  $img-size: 500px;
+ $img-blur: 4px;
+ $img-shadow: rgba( $color-gray-2, 0.5 );
+ $text-bottom: 10px;
+ 
+ 
 
  /**
   * Elements
   */
   div.top-img-container {
       max-height: $img-size;
-      overflow: hidden;      
+      overflow: hidden;    
+      position: relative;  
       
     div.top-img-inner-container{
-        margin: -8px;
+        margin: -8px;       // Cut the blurred border
         position: relative;
     }
 
     img {
         min-width: 100%;
         min-height: $img-size;
-        filter: blur(4px);
+        filter: blur( $img-blur );
     }
 
     .top-img-shadow {
       position: absolute;
-      top: 10px;
-      background-color: rgba($color-gray-2, 0.5);
+      top: 0px;
+      background-color: $img-shadow;
       color: white;
-      padding-left: 20px;
-      padding-right: 20px;
       width: 100%;
       height: 100%;
     }
+
+    h1 {
+        color: #fff;
+        text-shadow: 1px 1px 1px $color-gray-2;
+        position: absolute;
+        bottom: $text-bottom;
+        width: 100%;
+        text-align: center;
+      }
 }
 
-.top-img-text{
-  color: #fff;
-  text-shadow: 1px 1px 1px $color-gray-2;
-  font-size: 50px;
-  position: absolute;
-  top: 380px;
-  width: 100%;
-  text-align: center;
-}

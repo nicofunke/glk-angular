@@ -4,10 +4,18 @@
   <img src="../../assets/icons/logo.gif" id="nav-bar-logo" />
 
   <div class="nav-bar-items-container">
-    <div class="nav-bar-item">HOME</div>
-    <div class="nav-bar-item">GÖTTINGEN HARDCORE</div>
-    <div class="nav-bar-item">UNDERGROUND REMAINS</div>
-    <div class="nav-bar-item">CHAMÄLEON</div>
+    <div class="nav-bar-item" [class.selected]="this.router.url === '/home'"
+      [routerLink]="['/home']">HOME</div>
+
+    <div class="nav-bar-item" [class.selected]="this.router.url === '/goehc'"
+      [routerLink]="['/goehc']">GÖTTINGEN HARDCORE</div>
+
+    <div class="nav-bar-item" [class.selected]="this.router.url === '/undergroundremains'"
+      [routerLink]="['/undergroundremains']">UNDERGROUND REMAINS</div>
+
+    <div class="nav-bar-item" [class.selected]="this.router.url === '/chamaeleon'" 
+      [routerLink]="['/chamaeleon']">CHAMÄLEON</div>
+  
   </div>
 </div>
 
