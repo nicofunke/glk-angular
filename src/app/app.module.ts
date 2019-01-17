@@ -14,6 +14,7 @@ import { GoehcComponent } from "./views/goehc/goehc.component";
 import { ImpressumComponent } from "./views/impressum/impressum.component";
 import { ChamaeleonComponent } from "./views/chamaeleon/chamaeleon.component";
 import {HttpClientModule} from "@angular/common/http";
+import { ConcertThumbnailsComponent } from "./components/concert-thumbnails/concert-thumbnails.component";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {HttpClientModule} from "@angular/common/http";
     UndergroundRemainsComponent,
     GoehcComponent,
     ImpressumComponent,
-    ChamaeleonComponent
+    ChamaeleonComponent,
+    ConcertThumbnailsComponent
   ],
   imports: [
     BrowserModule,

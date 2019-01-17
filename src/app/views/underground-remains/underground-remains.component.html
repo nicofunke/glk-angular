@@ -9,20 +9,8 @@
 
   <h2>Nächste Konzerte</h2>
   Das sind alle Konzerte in nächster Zeit
-  <div class="concert-thumbnails-container">
-      <div *ngFor="let concert of (nextConcerts$ | async)"
-            class="concert-thumbnail"
-            [style.background-image]="'url(' + concertService.URL_BACKEND + concert.picture + ')'">
+  <glk-concert-thumbnails [concerts]="nextConcerts$ | async"></glk-concert-thumbnails>
 
-          <div class="concert-thumbnail-image vanish-on-hover"></div>
-          <div class="concert-thumbnail-title">
-            <span class="bands">{{ concert.bands }}</span>
-            <span class="date">{{ concert.date }} </span>
-          </div>
-          <div class="concert-thumbnail-image blurred"></div>
-
-      </div>
-  </div>
   <h2>Kontakt</h2>
   Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto
 </div>

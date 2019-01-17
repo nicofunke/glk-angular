@@ -8,7 +8,7 @@ import { ConcertService } from "../../services/concert.service";
 })
 export class UndergroundRemainsComponent implements OnInit {
 
-  constructor(private concertService: ConcertService) { }
+  constructor(  private concertService: ConcertService  ) { }
 
   public nextConcerts$ = this.concertService.getNextConcerts();
 

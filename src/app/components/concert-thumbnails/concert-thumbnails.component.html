@@ -1,0 +1,17 @@
+<div class="concert-thumbnails-container">
+    <div *ngFor="let concert of concerts"
+          class="concert-thumbnail"
+          [style.background-image]="'url(' + concertService.URL_BACKEND + concert.picture + ')'">
+
+        <div class="concert-thumbnail-image vanish-on-hover"></div>
+        <div class="concert-thumbnail-title">
+          <span class="bands">{{ concert.bands }}</span>
+          <span class="date">
+            <img src="../../../assets/icons/calendar_white.png" height="16px">
+            {{ formatDateString(concert.date) }}
+          </span>
+        </div>
+        <div class="concert-thumbnail-image blurred"></div>
+
+    </div>
+</div>
