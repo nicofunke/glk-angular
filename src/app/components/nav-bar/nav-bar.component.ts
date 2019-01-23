@@ -1,6 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, HostListener } from "@angular/core";
 import { MobileService } from "../../services/mobile.service";
-import { RouterModule, ActivatedRoute, Router } from '@angular/router';
+import { RouterModule, ActivatedRoute, Router } from "@angular/router";
 import { tap } from "rxjs/operators";
 
 @Component({
@@ -9,6 +9,16 @@ import { tap } from "rxjs/operators";
   styleUrls: ["./nav-bar.component.scss"]
 })
 export class NavBarComponent implements OnInit {
+
+
+  /**
+   * Set Transparency depending on the scroll position
+   */
+  public transparent = true;
+  @HostListener("window:scroll", ["$event"])
+    doSomething(event) {
+      this.transparent =  window.pageYOffset < 250;
+  }
 
   constructor(public mobileService: MobileService,
               public router: Router) { }

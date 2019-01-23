@@ -2,6 +2,7 @@
     <glk-nav-bar></glk-nav-bar>
     <div [@routeAnimations]="prepareRoute(outlet)">
         <router-outlet #outlet="outlet"></router-outlet>
+        <glk-foot></glk-foot>
     </div>
-    <glk-foot></glk-foot>
+
 </div>

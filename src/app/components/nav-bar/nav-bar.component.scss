@@ -6,28 +6,44 @@
 $navbar-height: 60px;
 $logo-height: 90px;
 $logo-left: 10px;
+$logo-top: 10px;
 $item-padding: 4px 0px 4px 0px;
 $item-margin: 15px 15px;
 $item-min-width: 0px;
 $item-transition: 300ms ease-in-out;
-$navbar-background: linear-gradient( rgba($color-gray-9, 0.75), rgba($color-gray-9,0.65));
-
+$navbar-background-transparent: rgba(black, 0);
+$navbar-background-normal: rgba($color-gray-9, 0.95);
+$navbar-background-transition: background-color 500ms ease-in-out;
 
  /**
   * Elements
   */
+
+img#nav-bar-logo {
+    height: $logo-height;
+    top: $logo-top;
+    left: $logo-left;
+    position: fixed;
+    z-index: 101;
+}
+
 div#nav-bar-container {
     width: 100%;
     height: $navbar-height;
-    background-image: $navbar-background;
+    background-color: $navbar-background-normal;
     color: $color-gray-3;
+    position: fixed;
+    top:0;
+    z-index: 100;
+    -webkit-transition:  $navbar-background-transition;
+    transition:  $navbar-background-transition;
 
-    img#nav-bar-logo {
-        height: $logo-height;
-        top: 0;
-        left: $logo-left;
-        z-index: 2;
-        position: absolute;
+    &.transparent{
+      background-color: $navbar-background-transparent;
+      color: $color-gray-9;
+      text-shadow: 1px 1px 2px $color-gray-2;
+      -webkit-transition: $navbar-background-transition;
+      transition:  $navbar-background-transition;
     }
 
     div.nav-bar-items-container {
@@ -36,7 +52,7 @@ div#nav-bar-container {
         flex-wrap: nowrap;
         justify-content: center;
         align-items: flex-end;
-        height: $navbar-height;    
+        height: $navbar-height;
     }
 }
 
@@ -44,14 +60,13 @@ div.nav-bar-item {
     min-width: $item-min-width;
     padding: $item-padding;
     margin: $item-margin;
-    font-size: $font-size-regular;
+    font-size: $font-size-regular ;
     text-align: center;
     transition: $item-transition;
     position: relative;
 
     &:hover {
-        cursor: pointer;        
-        color: $color-gray-2;
+        cursor: pointer;
         transition: $item-transition;
         text-shadow: 1px 1px 2px $color-gray-5;
     }
@@ -86,7 +101,6 @@ div.nav-bar-item {
 }
 
 .selected {
-    color: $color-gray-2;
     text-shadow: 1px 1px 2px $color-gray-5;
     box-shadow: inset 0 0px 0 white, inset 0 -2px 0 $color-gray-3;
 
