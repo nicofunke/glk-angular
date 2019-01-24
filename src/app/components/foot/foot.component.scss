@@ -9,6 +9,7 @@ $foot-background: linear-gradient( rgba($color-gray-1, 0.95), rgba($color-gray-1
 div.footer-container {
     width: 100%;
     height: 200px;
+    margin-top: -50px;
     background-image: $foot-background;
     padding: 8px;
     color: $color-gray-8;
@@ -18,7 +19,7 @@ div.footer-container {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: flex-end;
 
     div {
         width: 20px;

@@ -17,7 +17,7 @@ export class NavBarComponent implements OnInit {
   public transparent = true;
   @HostListener("window:scroll", ["$event"])
     doSomething(event) {
-      this.transparent =  window.pageYOffset < 250;
+      this.transparent =  window.pageYOffset < 350;
   }
 
   constructor(public mobileService: MobileService,

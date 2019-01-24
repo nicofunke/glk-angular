@@ -13,6 +13,9 @@ export class MobileService {
     this.updateState();
   }
 
+  /**
+   * Updates the state dependent on the current window.innerWidth
+   */
   public updateState(): void  {
     this.isMobile = window.innerWidth < this.mobileBreakpoint;
   }

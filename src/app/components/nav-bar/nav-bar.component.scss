@@ -4,13 +4,21 @@
  * Variables
  */
 $navbar-height: 60px;
-$logo-height: 90px;
-$logo-left: 10px;
-$logo-top: 10px;
+
+$logo-height: 110px;
+$logo-left: 2px;
+$logo-top: 2px;
+
 $item-padding: 4px 0px 4px 0px;
 $item-margin: 15px 15px;
 $item-min-width: 0px;
 $item-transition: 300ms ease-in-out;
+
+$font-color-transparent: $color-gray-5;
+$font-color-normal: $color-gray-5;
+$font-color-transparent-highlight: $color-gray-9;
+$font-color-normal-highlight: $color-gray-0;
+
 $navbar-background-transparent: rgba(black, 0);
 $navbar-background-normal: rgba($color-gray-9, 0.95);
 $navbar-background-transition: background-color 500ms ease-in-out;
@@ -25,42 +33,66 @@ img#nav-bar-logo {
     left: $logo-left;
     position: fixed;
     z-index: 101;
+    left: $logo-left;
+    transition: $item-transition;
+
+    &.transparent {
+      transition: $item-transition;
+      left: - $logo-height;
+    }
 }
 
 div#nav-bar-container {
     width: 100%;
     height: $navbar-height;
-    background-color: $navbar-background-normal;
-    color: $color-gray-3;
     position: fixed;
     top:0;
     z-index: 100;
+
+    background-color: $navbar-background-normal;
+    color: $font-color-normal;
     -webkit-transition:  $navbar-background-transition;
     transition:  $navbar-background-transition;
 
     &.transparent{
       background-color: $navbar-background-transparent;
-      color: $color-gray-9;
-      text-shadow: 1px 1px 2px $color-gray-2;
+      color: $font-color-transparent-highlight;
       -webkit-transition: $navbar-background-transition;
       transition:  $navbar-background-transition;
+
+      div.nav-bar-item {
+        color: $font-color-transparent;
+        &::after {
+          box-shadow: inset 0 0px 0 white, inset 0 -2px 0 $font-color-transparent-highlight;
+        }
+        &:hover {
+          color: $font-color-transparent-highlight;
+        }
+      }
+      div.selected {
+        box-shadow: inset 0 0px 0 white, inset 0 -2px 0 $font-color-transparent-highlight;
+        color: $font-color-transparent-highlight;
+      }
     }
 
-    div.nav-bar-items-container {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: center;
-        align-items: flex-end;
-        height: $navbar-height;
-    }
 }
+
+div.nav-bar-items-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-end;
+
+  height: $navbar-height;
+}
+
 
 div.nav-bar-item {
     min-width: $item-min-width;
     padding: $item-padding;
     margin: $item-margin;
-    font-size: $font-size-regular ;
+    font-size: $font-size-regular;
     text-align: center;
     transition: $item-transition;
     position: relative;
@@ -68,7 +100,7 @@ div.nav-bar-item {
     &:hover {
         cursor: pointer;
         transition: $item-transition;
-        text-shadow: 1px 1px 2px $color-gray-5;
+        color: $font-color-normal-highlight;
     }
 
     &::after {
@@ -78,42 +110,16 @@ div.nav-bar-item {
         bottom: 0px;
         height: 100%;
         width: 0%;
-        box-shadow: inset 0 0px 0 white, inset 0 -2px 0 $color-gray-3;
+        box-shadow: inset 0 0px 0 white, inset 0 -2px 0 $font-color-normal-highlight;
         transition: $item-transition;
     }
 
     &:hover::after {
         width: 100%;
     }
-
-    &:nth-child(1)::after {
-        box-shadow: inset 0 0px 0 white, inset 0 -2px 0 $color-blue;
-    }
-    &:nth-child(2)::after {
-        box-shadow: inset 0 0px 0 white, inset 0 -2px 0 $color-orange;
-    }
-    &:nth-child(3)::after {
-        box-shadow: inset 0 0px 0 white, inset 0 -2px 0 $color-green;
-    }
-    &:nth-child(4)::after {
-        box-shadow: inset 0 0px 0 white, inset 0 -2px 0 $color-yellow;
-    }
 }
 
 .selected {
-    text-shadow: 1px 1px 2px $color-gray-5;
-    box-shadow: inset 0 0px 0 white, inset 0 -2px 0 $color-gray-3;
-
-    &:nth-child(1) {
-        box-shadow: inset 0 0px 0 white, inset 0 -2px 0 $color-blue;
-    }
-    &:nth-child(2) {
-        box-shadow: inset 0 0px 0 white, inset 0 -2px 0 $color-orange;
-    }
-    &:nth-child(3) {
-        box-shadow: inset 0 0px 0 white, inset 0 -2px 0 $color-green;
-    }
-    &:nth-child(4) {
-        box-shadow: inset 0 0px 0 white, inset 0 -2px 0 $color-yellow;
-    }
+    box-shadow: inset 0 0px 0 white, inset 0 -2px 0 $font-color-normal-highlight;
+    color: $font-color-normal-highlight;
 }

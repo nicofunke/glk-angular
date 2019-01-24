@@ -3,11 +3,11 @@
 /**
  * Variables
  */
- $img-size: 700px;
+ $img-size: 800px;
  $img-filter: blur( 4px );
  $img-shadow: rgba( $color-gray-2, 0.5 );
  $img-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 10%, rgba(0, 0, 0, 1) 20%);
- $content-overlap: 100;
+ $content-overlap: 150;
 
  /**
   * Elements
@@ -48,6 +48,7 @@
         filter: $img-filter;
         -webkit-mask-image: $img-mask-image;
         mask-image: $img-mask-image;
+        transition: 2s ease-in-out;
     }
 
     .top-img-shadow {
