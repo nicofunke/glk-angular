@@ -12,7 +12,6 @@ import { Router, NavigationStart } from "@angular/router";
 export class TopImgComponent implements OnInit {
 
   public title: string;
-  public picture: string;
 
   /**
    * Change the title"s padding depending on the scroll position
@@ -28,7 +27,7 @@ export class TopImgComponent implements OnInit {
   constructor(private rd: Renderer2, private router: Router) { }
 
   /**
-   * Starts listening to router to change the image if the route changes
+   * Starts listening to router to change the title if the route changes
    */
   ngOnInit(): void {
     this.router.events.subscribe( (event) => {
@@ -39,26 +38,20 @@ export class TopImgComponent implements OnInit {
   }
 
   /**
-   * Updates the image and title, dependend on the given route
+   * Updates the title, dependend on the given route
    * @param url   string    current route
    */
   private updateTopImg( url: string): void {
     if ( url.match( "/goehc" ) ) {
       this.title = "Göttingen Hardcore";
-      this.picture = "../../../assets/img/title/goehc.jpg";
     } else if (url.match( "/cham" )) {
       this.title = "Chamäleon Gruppe";
-      this.picture = "../../../assets/img/title/cham.jpeg";
     } else if (url.match( "/undergroundremains" )) {
       this.title = "Underground Remains";
-      this.picture = "../../../assets/img/title/ur.jpg";
     } else if (url.match( "/home" )) {
       this.title = "Göttingen Live Kultur e.V.";
-      this.picture = "../../../assets/img/title/home.jpg";
     } else {
       this.title = "";
-      this.picture = "../../../assets/img/title/home.jpg";
-
     }
   }
 }

@@ -1,7 +1,7 @@
 <div id="app-container" (window:resize)="onResize($event)">
     <glk-nav-bar></glk-nav-bar>
 
-    <glk-top-img title="Underground Remains" picture="../assets/img/title/ur.jpg"></glk-top-img>
+    <glk-top-img></glk-top-img>
 
     <div class="content-container" [class.mobile]="mobileService.isMobile">
         <div [@routeAnimations]="prepareRoute(outlet)">

@@ -12,16 +12,26 @@ div.footer-container {
     margin-top: -50px;
     background-image: $foot-background;
     padding: 8px;
+    padding-bottom: 20px;
     color: $color-gray-8;
     font-size: $font-size-small;
 
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-around;
     align-items: flex-end;
 
     div {
-        width: 20px;
+        min-width: 20px;
+    }
+
+    .footer-credit {
+      display: flex;
+      align-items: center;
+      * {
+        margin-right: 5px;
+      }
     }
 }
+
