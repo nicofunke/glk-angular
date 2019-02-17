@@ -5,6 +5,7 @@ import { UndergroundRemainsComponent } from "./views/underground-remains/undergr
 import { GoehcComponent } from "./views/goehc/goehc.component";
 import { ChamaeleonComponent } from "./views/chamaeleon/chamaeleon.component";
 import { ImpressumComponent } from "./views/impressum/impressum.component";
+import { ConcertDetailsComponent } from "./components/concert-details/concert-details.component";
 
 const routes: Routes = [
   { path: "home", component: HomeComponent, data: {animation: "Home"} },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: "chamaeleon", component: ChamaeleonComponent, data: {animation: "Chamaeleon"} },
   { path: "undergroundremains", component: UndergroundRemainsComponent , data: {animation: "UndergroundRemains"}},
   { path: "impressum", component: ImpressumComponent, data: {animation: "Impressum"} },
+  { path: "concert/:id", component: ConcertDetailsComponent },
   { path: "**", component: HomeComponent, data: {animation: "Home"} }
  ];
 

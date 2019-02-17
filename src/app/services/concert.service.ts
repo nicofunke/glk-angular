@@ -1,16 +1,23 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { tap } from "rxjs/operators";
+import { tap, catchError } from "rxjs/operators";
 import { Concert } from "../interfaces/concert.interface";
-import { Observable } from "rxjs";
+import { Observable, of } from "rxjs";
 
 @Injectable({
   providedIn: "root"
 })
+
 export class ConcertService {
 
+  /**
+   * Backend URLs
+   */
   public URL_BACKEND = "http://localhost/glk_backend/";
   public PATH_NEXT_CONCERTS = "getNextConcerts.php";
+  public PATH_SINGLE_CONCERT = "getConcert.php";
+
+  private nextConcerts: Concert[];
 
   constructor(private http: HttpClient) { }
 
@@ -18,7 +25,27 @@ export class ConcertService {
    * Returns an observable with all next concerts from the backend
    */
   getNextConcerts(): Observable<Concert[]> {
-    return this.http.get<Concert[]>( this.URL_BACKEND + this.PATH_NEXT_CONCERTS );
+    return !! this.nextConcerts ? of(this.nextConcerts)
+            : this.http.get<Concert[]>( this.URL_BACKEND + this.PATH_NEXT_CONCERTS ).pipe(
+              tap( concerts => this.nextConcerts = concerts),
+              catchError( err => of(undefined))
+            );
+  }
+
+  /**
+   * Returns an observable with detailed information of a specific concert
+   * @param id  id of the concert
+   */
+  getConcertDetails( id: number): Observable<Concert> {
+    const outputConcert: Concert = this.nextConcerts ?
+          this.nextConcerts.find( concert => concert.id === id.toString() ) : undefined;
+
+    // TODO: look in previousConcerts
+
+    return outputConcert ? of(outputConcert) :
+         this.http.get<Concert>(this.URL_BACKEND + this.PATH_SINGLE_CONCERT + "?id=" + id).pipe(
+           catchError( err => of(undefined))
+         );
   }
 
 }

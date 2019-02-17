@@ -10,7 +10,7 @@ import * as moment from "moment";
 })
 export class ConcertThumbnailsComponent implements OnInit {
 
-  constructor( private concertService: ConcertService ) { }
+  constructor( public concertService: ConcertService ) { }
 
   @Input() concerts: Concert[];
 

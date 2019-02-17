@@ -16,6 +16,7 @@ import { ChamaeleonComponent } from "./views/chamaeleon/chamaeleon.component";
 import {HttpClientModule} from "@angular/common/http";
 import { ConcertThumbnailsComponent } from "./components/concert-thumbnails/concert-thumbnails.component";
 import { ContactInformationComponent } from "./components/contact-information/contact-information.component";
+import { ConcertDetailsComponent } from "./components/concert-details/concert-details.component";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ContactInformationComponent } from "./components/contact-information/co
     ImpressumComponent,
     ChamaeleonComponent,
     ConcertThumbnailsComponent,
-    ContactInformationComponent
+    ContactInformationComponent,
+    ConcertDetailsComponent
   ],
   imports: [
     BrowserModule,

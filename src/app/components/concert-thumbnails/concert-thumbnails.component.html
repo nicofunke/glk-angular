@@ -1,6 +1,7 @@
 <div class="concert-thumbnails-container">
     <div *ngFor="let concert of concerts"
           class="concert-thumbnail"
+          [routerLink]="['/concert', concert.id]"
           [style.background-image]="'url(' + concertService.URL_BACKEND + concert.picture + ')'">
 
         <div class="concert-thumbnail-image vanish-on-hover"></div>

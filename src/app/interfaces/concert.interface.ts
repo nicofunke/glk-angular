@@ -10,4 +10,5 @@ export interface Concert {
     readonly buylink: string;
     readonly picture: string;
     readonly description: string;
+    readonly id: string;
 }
