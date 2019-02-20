@@ -10,7 +10,6 @@ import { slideInAnimation } from "./animations";
   styleUrls: ["./app.component.scss"],
   animations: [
     slideInAnimation
-    // animation triggers go here
   ]
 })
 
@@ -20,8 +19,7 @@ export class AppComponent {
     this.mobileService.updateState();
   }
 
-  constructor(public mobileService: MobileService,
-              public router: Router) {
+  constructor(public mobileService: MobileService,) {
 
   }
 

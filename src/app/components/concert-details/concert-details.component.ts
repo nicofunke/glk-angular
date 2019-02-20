@@ -14,7 +14,8 @@ export class ConcertDetailsComponent implements OnInit {
   public id: number;
   public concert: Concert;
 
-  constructor( private route: ActivatedRoute, private concertService: ConcertService ) { }
+  constructor( private route: ActivatedRoute,
+              public concertService: ConcertService ) { }
 
   /**
    * Function that gets called on init and starts to subscribe the route params and fetch the right concert

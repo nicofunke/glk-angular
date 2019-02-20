@@ -46,6 +46,12 @@
         min-height: $img-size;
     }
 
+    img {
+      mask-image: $img-mask-image;
+      min-width: 100vw;
+      filter: blur(4px);
+    }
+
     .top-img-shadow {
       position: absolute;
       top: 0px;
@@ -55,4 +61,3 @@
       height: 100%;
     }
 }
-

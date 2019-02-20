@@ -1,14 +1,17 @@
-<div class="top-img-container">
+<div class="top-img-container" [class.top-img-small]="!title">
   <div class="top-img-inner-container">
+    <!-- Not webm => Image Input -->
+    <img *ngIf="!isVideo" [src]="content"/>
+    <!-- webm => Video Input -->
     <video loop autoplay muted>
-        <source src="../../../assets/top-img-movie-woj.webm" type="video/webm">
-      </video>
+        <source *ngIf="isVideo" [src]="content" type="video/webm">
+    </video>
     <div class="top-img-shadow"></div>
   </div>
   <h1> </h1>
 </div>
 
 <div class="title-placeholder">
-  <h1 #imgTitle> {{ title }}</h1>
+  <h1 #imgTitle> {{ titleText }}</h1>
 </div>
 

@@ -1,4 +1,18 @@
-<h2 *ngIf="!!concert">
-  {{ concert.bands }}
-</h2>
+<glk-top-img *ngIf="!!concert" [content]="concertService.URL_BACKEND + concert.picture"
+    [titleText]=""></glk-top-img>
 
+<div *ngIf="!!concert" class="content-container concert-detail-container">
+  <div class="concert-image-container">
+    <img  [src]=" concertService.URL_BACKEND + concert.picture" />
+  </div>
+
+  <div class="concert-detail-description">
+    <h2> {{ concert.bands }}</h2>
+    <div class="concert-date">
+        <img src="../../../assets/icons/calendar.png" style="background-color: black" height="16px">
+        {{ concert.date }}
+      </div>
+    <div [innerHTML]="concert.description">  </div>
+  </div>
+
+</div>

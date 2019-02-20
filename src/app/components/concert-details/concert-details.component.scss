@@ -1,0 +1,36 @@
+@import "~src/styles.scss";
+
+.concert-detail-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: center;
+  align-items: stretch;
+  margin-top: -400px;
+
+  div {
+    flex: 1 1 300px;
+  }
+}
+
+.concert-image-container{
+  padding: 25px;
+
+  img{
+    width: 100%;
+    box-shadow: 3px 3px 5px $color-gray-2;
+  }
+}
+
+.concert-detail-description {
+  padding: 10px;
+
+  h2 {
+    margin-bottom: 5px;
+  }
+
+  .concert-date{
+    font-size: $font-size-small;
+  }
+}
