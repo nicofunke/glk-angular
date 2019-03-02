@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 32 32"
+   version="1.1"
+   id="svg13"
+   sodipodi:docname="clock.svg"
+   inkscape:export-filename="C:\Users\Nico\Documents\git\glk-angular\src\assets\icons\clock_black.png"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata17">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     id="namedview15"
+     showgrid="false"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:object-paths="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-midpoints="true"
+     inkscape:zoom="8"
+     inkscape:cx="62.901899"
+     inkscape:cy="29.954602"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg13" />
+  <defs
+     id="defs4">
+    <style
+       id="style2">.cls-1{fill:none;stroke:#000;stroke-linejoin:round;stroke-width:2px;}</style>
+  </defs>
+  <title
+     id="title6" />
+  <path
+     style="opacity:1;fill:#280b0b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="M 16.375 4.75 A 11.75 11.75 0 0 0 4.625 16.5 A 11.75 11.75 0 0 0 16.375 28.25 A 11.75 11.75 0 0 0 28.125 16.5 A 11.75 11.75 0 0 0 16.375 4.75 z M 16.375 7.25 A 9.25 9.25 0 0 1 25.625 16.5 A 9.25 9.25 0 0 1 16.375 25.75 A 9.25 9.25 0 0 1 7.125 16.5 A 9.25 9.25 0 0 1 16.375 7.25 z "
+     id="path824" />
+  <g
+     id="g848"
+     transform="matrix(0.80112623,0,0,0.80112623,14.269678,9.9892594)">
+    <rect
+       ry="1.9350277"
+       y="-1.1936699"
+       x="0.77233714"
+       height="11.465038"
+       width="3.3112025"
+       id="rect830"
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:14.23029518;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <rect
+       transform="rotate(55.726662)"
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:12.59516525;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect836"
+       width="3.3112025"
+       height="8.981637"
+       x="6.8310089"
+       y="-4.4825578"
+       ry="1.6556013" />
+  </g>
+</svg>

@@ -1,36 +1,75 @@
 @import "~src/styles.scss";
 
-.concert-detail-container{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 20px;
-  justify-content: center;
-  align-items: stretch;
-  margin-top: -400px;
+/**
+ * Variables
+ */
+$main-container-margin-top: -200px;
+$image-max-width: 500px;
+$image-max-heigth: 500px;
+$info-box-margin-top: -200px;
+$info-box-color: $color-gray-9;
 
-  div {
-    flex: 1 1 300px;
+/**
+ * Elements
+ **/
+.concert-detail-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+
+  margin-top: $main-container-margin-top;
+}
+
+.concert-info-box {
+  display: inline-block;
+
+  background-color: $info-box-color;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: $info-box-margin-top;
+  box-shadow: 2px 2px 10px $color-gray-3;
+
+  hr {
+    width: 85%;
   }
 }
 
-.concert-image-container{
-  padding: 25px;
+.concert-info-box-details {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 
-  img{
-    width: 100%;
-    box-shadow: 3px 3px 5px $color-gray-2;
+  .detail-item {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    margin: 2px;
+  }
+
+  img {
+    margin-right: 5px;
+    height: 20px;
+  }
+}
+
+.concert-image-container {
+  max-width: $image-max-width;
+  // max-height: $image-max-heigth;
+
+  img {
+    max-width: 100%;
+    max-height: $image-max-heigth;
+    height: auto;
+    width: auto;
   }
 }
 
 .concert-detail-description {
   padding: 10px;
+  max-width: 600px;
 
   h2 {
     margin-bottom: 5px;
-  }
-
-  .concert-date{
-    font-size: $font-size-small;
   }
 }
