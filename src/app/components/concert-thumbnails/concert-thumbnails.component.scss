@@ -8,7 +8,7 @@ $height: 200px;
 $min-width: 320px;
 $margin: 3px;
 $border: 1px solid black;
-$image-filter: grayscale(90%) blur(5px) brightness(70%);
+$image-filter: grayscale(60%) blur(5px);
 
 /**
  * Elements
@@ -50,7 +50,7 @@ div.concert-thumbnail {
 div.concert-thumbnail-image {
   background-image: inherit;
 
-  // The next two lines need to be fixed later on
+  // TODO: The next two lines need to be fixed later on
   width: 110% !important;
   height: 110% !important;
 }
@@ -58,6 +58,7 @@ div.concert-thumbnail-image {
 div.blurred {
   z-index: 1;
   filter: $image-filter;
+  -webkit-filter: $image-filter;
 }
 
 div.vanish-on-hover {
@@ -77,6 +78,7 @@ div.concert-thumbnail-title {
   align-items: center;
   color: white;
   text-shadow: 2px 2px 3px black;
+  background-color: rgba(black, 0.6);
 
   span.bands{
     padding: 20px;
