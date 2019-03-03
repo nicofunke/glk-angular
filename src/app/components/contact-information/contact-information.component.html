@@ -1,13 +1,24 @@
-<div class="contact-container" [class.mobile]="mobileService.isMobile">
-  <div class="contact-profile-picture"></div>
+<div *ngIf="!!contactLinks" class="contact-container" [class.mobile]="mobileService.isMobile">
+  <div class="contact-profile-picture"
+  [ngStyle]="{'background-image': 'url(' + profilePicture+ ')', 'background-size': 'cover'}"></div>
   <div class="contact-information">
-    <div class="contact-header">Nico Funke</div>
-    <div class="contact-description">Webseitenverantwortlicher</div>
+    <div class="contact-header">{{ name }}</div>
+    <div class="contact-description">{{ summary }}</div>
     <div class="contact-social-media">
-      <img src="../../../assets/icons/social-media/mail.png">
-      <img src="../../../assets/icons/social-media/instagram.png">
-      <img src="../../../assets/icons/social-media/facebook.png">
-      <img src="../../../assets/icons/social-media/youtube.png">
+      <img *ngIf="!!contactLinks.mail" src="../../../assets/icons/social-media/mail.png">
+      <img *ngIf="!!contactLinks.website" src="../../../assets/icons/social-media/website.png">
+      <img *ngIf="!!contactLinks.instagram" src="../../../assets/icons/social-media/instagram.png">
+      <img *ngIf="!!contactLinks.facebook" src="../../../assets/icons/social-media/facebook.png">
+      <img *ngIf="!!contactLinks.youtube" src="../../../assets/icons/social-media/youtube.png">
+      <img *ngIf="!!contactLinks.linkedin" src="../../../assets/icons/social-media/linkedin.png">
+      <img *ngIf="!!contactLinks.amazon" src="../../../assets/icons/social-media/amazon.png">
+      <img *ngIf="!!contactLinks.audio" src="../../../assets/icons/social-media/audio.png">
+      <img *ngIf="!!contactLinks.android"src="../../../assets/icons/social-media/android.png">
+      <img *ngIf="!!contactLinks.blog" src="../../../assets/icons/social-media/blog.png">
+      <img *ngIf="!!contactLinks.photo" src="../../../assets/icons/social-media/photo.png">
+      <img *ngIf="!!contactLinks.shopping"src="../../../assets/icons/social-media/shopping.png">
+      <img *ngIf="!!contactLinks.twitter" src="../../../assets/icons/social-media/twitter.png">
+      <img *ngIf="!!contactLinks.whatsapp" src="../../../assets/icons/social-media/whatsapp.png">
     </div>
   </div>
 </div>
