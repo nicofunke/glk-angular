@@ -13,13 +13,13 @@ const routes: Routes = [
   { path: "chamaeleon", component: ChamaeleonComponent, data: {animation: "Chamaeleon"} },
   { path: "undergroundremains", component: UndergroundRemainsComponent , data: {animation: "UndergroundRemains"}},
   { path: "impressum", component: ImpressumComponent, data: {animation: "Impressum"} },
-  { path: "concert/:id", component: ConcertDetailsComponent },
+  { path: "concert/:id", component: ConcertDetailsComponent, data: {animation: "ConcertDetails"} },
   { path: "**", component: HomeComponent, data: {animation: "Home"} }
  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    scrollPositionRestoration: "top"
+    scrollPositionRestoration: "enabled"
     })],
   exports: [RouterModule]
 })

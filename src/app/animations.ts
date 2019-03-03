@@ -61,15 +61,19 @@ const slideToLeft = [
  */
 export const slideInAnimation =
   trigger("routeAnimations", [
-    transition("Home => *", slideToLeft),
+    transition("Home => Goehc", slideToLeft),
+    transition("Home => UndergroundRemains", slideToLeft),
+    transition("Home => Chamaeleon", slideToLeft),
 
     transition("Goehc => Home", slideToRight),
-    transition("Goehc => *", slideToLeft),
+    transition("Goehc => UndergroundRemains", slideToLeft),
+    transition("Goehc => Chamaeleon", slideToLeft),
 
     transition("UndergroundRemains => Chamaeleon", slideToLeft),
-    transition("UndergroundRemains => *", slideToRight),
+    transition("UndergroundRemains => Goehc", slideToRight),
+    transition("UndergroundRemains => Home", slideToRight),
 
-    transition("Chamaeleon => *", slideToRight)
+    transition("Chamaeleon => Home", slideToRight),
+    transition("Chamaeleon => Goehc", slideToRight),
+    transition("Chamaeleon => UndergroundRemains", slideToRight),
 ]);
-
-
