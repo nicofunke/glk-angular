@@ -6,11 +6,11 @@ import { tap, map, mergeMap, filter, distinctUntilChanged } from "rxjs/operators
 import * as moment from "moment";
 
 @Component({
-  selector: "glk-concert-details",
-  templateUrl: "./concert-details.component.html",
-  styleUrls: ["./concert-details.component.scss"]
+  selector: "glk-concert-detail-view",
+  templateUrl: "./concert-detail-view.component.html",
+  styleUrls: ["./concert-detail-view.component.scss"]
 })
-export class ConcertDetailsComponent implements OnInit {
+export class ConcertDetailViewComponent implements OnInit {
 
   /**
    * Variables
