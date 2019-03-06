@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { tap, catchError } from "rxjs/operators";
 import { Concert } from "../interfaces/concert.interface";
 import { Observable, of } from "rxjs";
@@ -14,8 +14,19 @@ export class ConcertService {
    * Backend URLs
    */
   public URL_BACKEND = "http://localhost/glk_backend/";
-  public PATH_NEXT_CONCERTS = "getNextConcerts.php";
-  public PATH_SINGLE_CONCERT = "getConcert.php";
+  public PATH_NEXT_CONCERTS = "getNextConcerts";
+  public PATH_SINGLE_CONCERT = "getConcert";
+
+  /**
+   * HttpOptions for post requests
+   */
+  httpOptions = {
+      headers:
+          new HttpHeaders (
+          {
+              "Content-Type": "application/x-www-form-urlencoded"
+          }),
+  };
 
   private nextConcerts: Concert[];
 
@@ -43,8 +54,10 @@ export class ConcertService {
     // TODO: look in previousConcerts
 
     return outputConcert ? of(outputConcert) :
-         this.http.get<Concert>(this.URL_BACKEND + this.PATH_SINGLE_CONCERT + "?id=" + id).pipe(
-           catchError( err => of(undefined))
+         this.http.post<Concert>(this.URL_BACKEND + this.PATH_SINGLE_CONCERT ,
+            {id: id}, this.httpOptions ).pipe(
+
+            catchError( err => of(undefined))
          );
   }
 
