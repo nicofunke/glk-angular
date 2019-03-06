@@ -3,9 +3,9 @@
 /**
  * Variables
  */
-$navbar-height: 60px;
+$navbar-height: 55px;
 
-$logo-height: 110px;
+$logo-height: 105px;
 $logo-left: 2px;
 $logo-top: 2px;
 
@@ -14,6 +14,7 @@ $item-margin: 15px 15px;
 $item-min-width: 0px;
 $item-transition: 300ms ease-in-out;
 
+$font-size:  $font-size-small;
 $font-color-transparent: $color-gray-5;
 $font-color-normal: $color-gray-5;
 $font-color-transparent-highlight: $color-gray-9;
@@ -92,7 +93,7 @@ div.nav-bar-item {
     min-width: $item-min-width;
     padding: $item-padding;
     margin: $item-margin;
-    font-size: $font-size-regular;
+    font-size: $font-size;
     text-align: center;
     transition: $item-transition;
     position: relative;

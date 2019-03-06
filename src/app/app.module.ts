@@ -1,3 +1,4 @@
+import { ConcertDetailViewComponent } from "./views/concert-detail-view/concert-detail-view.component";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -16,7 +17,8 @@ import { ChamaeleonComponent } from "./views/chamaeleon/chamaeleon.component";
 import {HttpClientModule} from "@angular/common/http";
 import { ConcertThumbnailsComponent } from "./components/concert-thumbnails/concert-thumbnails.component";
 import { ContactInformationComponent } from "./components/contact-information/contact-information.component";
-import { ConcertDetailsComponent } from "./components/concert-details/concert-details.component";
+import { LoginViewComponent } from "./views/login-view/login-view.component";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -32,13 +34,15 @@ import { ConcertDetailsComponent } from "./components/concert-details/concert-de
     ChamaeleonComponent,
     ConcertThumbnailsComponent,
     ContactInformationComponent,
-    ConcertDetailsComponent
+    ConcertDetailViewComponent,
+    LoginViewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [MobileService],
   bootstrap: [AppComponent]
