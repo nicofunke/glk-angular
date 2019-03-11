@@ -1,8 +1,13 @@
 <div id="app-container" (window:resize)="onResize($event)">
-    <glk-nav-bar></glk-nav-bar>
+  <glk-nav-bar></glk-nav-bar>
 
-        <div [@routeAnimations]="prepareRoute(outlet)">
-          <router-outlet #outlet="outlet"></router-outlet>
-        </div>
-    <glk-foot></glk-foot>
+  <div [@routeAnimations]="prepareRoute(outlet)">
+    <router-outlet #outlet="outlet"></router-outlet>
   </div>
+  <glk-foot></glk-foot>
+</div>
+
+<div class="user-container" *ngIf="(userService.username$ | async)">
+  <div>Angemeldet als {{ userService.username$ | async }}</div>
+  <a (click)="userService.logout()">Abmelden</a>
+</div>

@@ -1,8 +1,8 @@
 import { Component } from "@angular/core";
 import { MobileService } from "./services/mobile.service";
-import { TopImgComponent } from "./components/top-img/top-img.component";
-import { Router, RouterOutlet } from "@angular/router";
+import { RouterOutlet } from "@angular/router";
 import { slideInAnimation } from "./animations";
+import { UserService } from "./services/user.service";
 
 @Component({
   selector: "app-root",
@@ -19,8 +19,10 @@ export class AppComponent {
     this.mobileService.updateState();
   }
 
-  constructor(public mobileService: MobileService,) {
+  constructor(public mobileService: MobileService,
+    public userService: UserService) {
 
+      this.userService.checkAuthentication();
   }
 
   /**

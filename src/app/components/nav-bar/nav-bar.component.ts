@@ -1,7 +1,6 @@
 import { Component, OnInit, HostListener } from "@angular/core";
 import { MobileService } from "../../services/mobile.service";
-import { RouterModule, ActivatedRoute, Router } from "@angular/router";
-import { tap } from "rxjs/operators";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "glk-nav-bar",
