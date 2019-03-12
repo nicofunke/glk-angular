@@ -7,36 +7,49 @@
 <div *ngIf="!!concert" class="content-container concert-detail-container">
 
   <!-- Left info box  -->
-  <div class="concert-info-box">
+  <div class="concert-left-area">
+
+    <!-- Image Box -->
     <div class="concert-image-container">
       <img [src]="concertService.URL_BACKEND + concert.picture" />
     </div>
 
-    <!-- Details -->
+    <!-- Details  Box-->
     <div class="concert-info-box-details">
       <div *ngIf="concert.date" class="detail-item">
-        <img src="../../../assets/icons/calendar_black.png" />
+        <img src="../../../assets/icons/calendar_white.png" />
         <div>{{ formattedDate }}</div>
       </div>
       <div *ngIf="concert.place" class="detail-item">
-        <img src="../../../assets/icons/location_black.png" />
+        <img src="../../../assets/icons/location_white.png" />
         <div>{{ concert.place }}</div>
       </div>
     </div>
     <div class="concert-info-box-details">
       <div *ngIf="concert.doors" class="detail-item">
-        <img src="../../../assets/icons/clock_black.png" />
+        <img src="../../../assets/icons/clock_white.png" />
         <div>Doors: {{ concert.doors }}</div>
       </div>
       <div *ngIf="concert.begin"  class="detail-item">
-          <img src="../../../assets/icons/flash_black.png" />
+          <img src="../../../assets/icons/flash_white.png" />
           <div>Beginn: {{ concert.begin }}</div>
         </div>
     </div>
   </div>
 
-  <div class="concert-detail-description">
+  <!-- Right Text Area -->
+  <div class="concert-detail-right-box">
     <h2>{{ concert.bands }}</h2>
+    <div class="subheader">
+      <button *ngIf="concert.fblink" class="facebook" (click)="openLink(concert.fblink)">
+        <img height="14px" src="../../../assets/icons/facebook_white.png"/>
+        Facebook
+      </button>
+      <button *ngIf="concert.buylink" class="ticket" (click)="openLink(concert.buylink)">
+          <img height="14px" src="../../../assets/icons/ticket_white.png"/>
+          Tickets
+        </button>
+    </div>
 
     <div [innerHTML]="concert.description"></div>
   </div>

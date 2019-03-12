@@ -53,4 +53,11 @@ export class ConcertDetailViewComponent implements OnInit {
     this.formattedDate = moment( concert.date).format("DD.MM.YYYY");
   }
 
+  /**
+   * Opens the given link in a new tab
+   * @param link    link to open
+   */
+  openLink( link: string) {
+    window.open(link, "_blank");
+  }
 }
