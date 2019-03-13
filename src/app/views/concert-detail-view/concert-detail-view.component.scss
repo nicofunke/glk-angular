@@ -108,3 +108,25 @@ $info-box-color: $color-gray-9;
     }
   }
 }
+
+.edit-links-container {
+  width: 100%;
+  max-width: 100%;;
+  overflow-x: auto;
+  background-color: $color-gray-9;
+  border-radius: 8px;
+  padding: 10px;
+
+  .edit-link {
+    font-size: $font-size-smaller;
+    white-space: nowrap;
+    text-decoration: underline;
+  }
+}
+
+.options-buttons {
+  a {
+    display: table;
+    margin-top: 5px;
+  }
+}
