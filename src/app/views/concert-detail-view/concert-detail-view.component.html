@@ -19,37 +19,44 @@
     <div class="concert-info-box-details">
       <div *ngIf="concert.date"  class="detail-item">
         <img src="../../../assets/icons/calendar_white.png" />
-        <div #date contentEditable="{{editMode}}">{{ formattedDate }}</div>
+        <div #date contentEditable="{{editMode}}"
+        [textContent]="concert.date" (input)="concert.date=$event.target.textContent"></div>
       </div>
       <div *ngIf="concert.place" class="detail-item">
         <img src="../../../assets/icons/location_white.png" />
-        <div #place contentEditable="{{editMode}}">{{ concert.place }}</div>
+        <div #place contentEditable="{{editMode}}"
+          [textContent]="concert.place" (input)="concert.place=$event.target.textContent"></div>
       </div>
     </div>
     <div class="concert-info-box-details">
       <div *ngIf="concert.doors" class="detail-item">
         <img src="../../../assets/icons/clock_white.png" />
         <div>Doors:
-          <span #doors contentEditable="{{editMode}}">{{ concert.doors }}</span>
+          <span #doors contentEditable="{{editMode}}"
+          [textContent]="concert.doors" (input)="concert.doors=$event.target.textContent"></span>
         </div>
       </div>
       <div *ngIf="concert.begin"  class="detail-item">
           <img src="../../../assets/icons/flash_white.png" />
           <div>Beginn:
-            <span #begin contentEditable="{{editMode}}">{{ concert.begin }}</span>
+            <span #begin contentEditable="{{editMode}}"
+            [textContent]="concert.begin" (input)="concert.begin=$event.target.textContent"></span>
           </div>
         </div>
     </div>
 
     <!-- options buttons -->
     <div class="options-buttons">
+        <a (click)="createNewConcert()">
+            <img src="assets/icons/add_black.png" height="14px"/> Neues Konzert
+          </a>
       <a *ngIf="!editMode" (click)="editMode=true">
         <img src="assets/icons/pencil_black.png" height="14px"/> Konzert bearbeiten
       </a>
       <a *ngIf="editMode" (click)="saveChanges()">
         <img src="assets/icons/save_black.png" height="14px"/> Änderungen speichern
       </a>
-      <a *ngIf="editMode" (click)="reloadSite()">
+      <a *ngIf="editMode" (click)="cancelEdit()">
         <img src="assets/icons/cross_black.png" height="14px"/> Bearbeitung abbrechen
       </a>
       <a (click)="deleteConcert()">
@@ -62,7 +69,8 @@
 
   <!-- Right Text Area -->
   <div class="concert-detail-right-box">
-    <h2 #bands contentEditable="{{editMode}}">{{ concert.bands }}</h2>
+    <h2 #bands contentEditable="{{editMode}}"
+    [textContent]="concert.bands" (input)="concert.bands=$event.target.textContent"></h2>
     <div class="subheader">
       <button *ngIf="concert.fblink && !editMode" class="facebook" (click)="openLink(concert.fblink)">
         <img height="14px" src="../../../assets/icons/facebook_white.png"/>
@@ -76,16 +84,19 @@
     </div>
 
     <b *ngIf="editMode">Beschreibung: </b>
-    <div #description contentEditable="{{editMode}}"[innerHTML]="concert.description"></div>
+    <div #description contentEditable="{{editMode}}" [textContent]="concert.description"
+          (input)="concert.description=$event.target.textContent"></div>
   </div>
 
   <!-- Edit links container -->
   <div *ngIf="editMode" class="edit-links-container">
     <div>
-        <b>Ticketlink: </b> <span  class="edit-link" #buyLink contentEditable="{{editMode}}">{{concert.buylink}}</span>
+        <b>Ticketlink: </b> <span  class="edit-link" #buyLink contentEditable="{{editMode}}"
+        [textContent]="concert.buylink" (input)="concert.buylink=$event.target.textContent"></span>
     </div>
     <div>
-        <b>Facebooklink: </b> <span  class="edit-link" #fbLink contentEditable="{{editMode}}">{{concert.fblink}}</span>
+        <b>Facebooklink: </b> <span  class="edit-link" #fbLink contentEditable="{{editMode}}"
+        [textContent]="concert.fblink" (input)="concert.fblink=$event.target.textContent"></span>
     </div>
   </div>
 

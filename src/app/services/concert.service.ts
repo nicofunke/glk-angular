@@ -61,4 +61,38 @@ export class ConcertService {
          );
   }
 
+  /**
+   * Sends request to backend to save a concert (edit old one/create new one, dependent on th id)
+   * @param concert new or edited concert object
+   * @return    boolean, if saved successfully
+   */
+  saveConcert(concert: Concert): Observable<boolean> {
+    console.log("Saving:");
+    console.log(concert);
+    return of(true);
+  }
+
+  /**
+   * Sends request to backend to delte a concert
+   * @param concertId   id of the concert to delete
+   * @return            boolean, if deleted successfully
+   */
+  deleteConcert(concertId: string): Observable<boolean> {
+    console.log("deleting" + concertId);
+    return of(true);
+  }
+
+  getConcertTemplate(): Concert {
+    return {
+      description: "Hier könnte Ihre Konzertbeschreibung stehen",
+      bands: "Coole Band 1, coole Band 2 und Anhang",
+      date: "01.01.2000",
+      place: "Club Göttingen",
+      doors: "12:00",
+      begin: "12:00",
+      fblink: "",
+      buylink: "",
+      picture: ""
+    };
+  }
 }

@@ -33,6 +33,9 @@ $info-box-color: $color-gray-9;
   img {
     max-width: 100%;
     max-height: $image-max-heigth;
+    min-height: 200px;
+    min-width: 200px;
+    background-color: $color-gray-6;
     height: auto;
     width: auto;
     border-radius: 5px;

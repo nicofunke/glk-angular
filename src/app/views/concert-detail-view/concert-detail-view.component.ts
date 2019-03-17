@@ -16,13 +16,13 @@ export class ConcertDetailViewComponent implements OnInit {
    * Variables
    */
   public concert: Concert;
+  public concertBackup: Concert;
   public imageLink: string;
   public formattedDate: string;
 
   /**
-   * ViewChilds to read elements content
+   * ViewChilds to read elements content, that may been changed
    */
-
   @ViewChild("date") divDate: ElementRef;
   @ViewChild("place") divPlace: ElementRef;
   @ViewChild("doors") divDoors: ElementRef;
@@ -47,19 +47,33 @@ export class ConcertDetailViewComponent implements OnInit {
     console.log(this.divBuyLink.nativeElement.innerHTML);
   }
 
-  // TODO: Logic
+  /**
+   * Calls the service to save the changes and stops edit mode
+   */
   saveChanges() {
     this.editMode = false;
-    console.log("Saving");
+    this.concertService.saveConcert(this.concert);
   }
 
-  reloadSite() {
+  /**
+   * Stops the edit mode and resets the current shown concert
+   */
+  cancelEdit(): void {
     this.editMode = false;
-    console.log("Reloading");
+    this.updateVariables(this.concertBackup);
+
   }
 
+  /**
+   * Calls the service to delete the current concert
+   */
   deleteConcert() {
-    console.log("deleting");
+    this.concertService.deleteConcert( this.concert.id );
+  }
+
+  createNewConcert() {
+    this.editMode = true;
+    this.concert = this.concertService.getConcertTemplate();
   }
 
   /**
@@ -91,7 +105,8 @@ export class ConcertDetailViewComponent implements OnInit {
    * @param concert     concert to get the values from
    */
   updateVariables( concert: Concert): void {
-    this.concert = concert;
+    this.concert =  (JSON.parse(JSON.stringify(concert)));
+    this.concertBackup = (JSON.parse(JSON.stringify(concert)));
     this.imageLink = this.concertService.URL_BACKEND + concert.picture;
     this.formattedDate = moment( concert.date).format("DD.MM.YYYY");
   }
