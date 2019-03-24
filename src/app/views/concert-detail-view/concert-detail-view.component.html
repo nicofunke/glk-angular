@@ -1,7 +1,6 @@
 <glk-top-img
   *ngIf="!!concert"
-  (click)="test()"
-  [content]="concertService.URL_BACKEND + concert.picture"
+  [content]="pictureToSrcAttribute(concert.picture)"
   [titleText]="">
 </glk-top-img>
 
@@ -12,7 +11,8 @@
 
     <!-- Image Box -->
     <div class="concert-image-container">
-      <img [src]="concertService.URL_BACKEND + concert.picture" />
+      <input  type="file" (change)="changePicture($event)" #pictureUpload>
+      <img [src]="pictureToSrcAttribute(concert.picture)" (click)="editMode && pictureUpload.click()"/>
     </div>
 
     <!-- Details  Box-->

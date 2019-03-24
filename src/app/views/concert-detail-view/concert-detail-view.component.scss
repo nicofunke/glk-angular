@@ -41,6 +41,10 @@ $info-box-color: $color-gray-9;
     border-radius: 5px;
     box-shadow: 4px 4px 8px $color-gray-1;
   }
+
+  input{
+    display: none;
+  }
 }
 
 .concert-info-box-details {
