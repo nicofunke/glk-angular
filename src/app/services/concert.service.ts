@@ -16,6 +16,8 @@ export class ConcertService {
   public URL_BACKEND = "http://localhost/glk_backend/";
   public PATH_NEXT_CONCERTS = "getNextConcerts";
   public PATH_SINGLE_CONCERT = "getConcert";
+  public PATH_SAVE_CONCERT = "saveConcert";
+  public PATH_DELETE_CONCERT = "deleteConcert";
 
   /**
    * HttpOptions for post requests
@@ -56,7 +58,6 @@ export class ConcertService {
     return outputConcert ? of(outputConcert) :
          this.http.post<Concert>(this.URL_BACKEND + this.PATH_SINGLE_CONCERT ,
             {id: id}, this.httpOptions ).pipe(
-
             catchError( err => of(undefined))
          );
   }
@@ -66,22 +67,31 @@ export class ConcertService {
    * @param concert new or edited concert object
    * @return    boolean, if saved successfully
    */
-  saveConcert(concert: Concert): Observable<boolean> {
-    console.log("Saving:");
-    console.log(concert);
-    return of(true);
+  saveConcert(concert: Concert): void {
+    this.http.post(this.URL_BACKEND + this.PATH_SAVE_CONCERT, concert, this.httpOptions).pipe(
+      // TODO: Add Toasts
+      tap( x => console.log("Gespeichert!, x")),
+      catchError( err => {console.log("Error: Speichern des Konzerts fehlgechlagen"); return of(undefined); })
+    ).subscribe();
   }
 
   /**
-   * Sends request to backend to delte a concert
+   * Sends request to backend to delete a concert
    * @param concertId   id of the concert to delete
    * @return            boolean, if deleted successfully
    */
-  deleteConcert(concertId: string): Observable<boolean> {
-    console.log("deleting" + concertId);
-    return of(true);
+  deleteConcert(concertId: string): void {
+    this.http.post(this.URL_BACKEND + this.PATH_DELETE_CONCERT, {id: concertId}, this.httpOptions).pipe(
+      // TODO: Add Toasts
+      tap( x => console.log("Gespeichert!, x")),
+      catchError( err => {console.log("Error: Speichern des Konzerts fehlgechlagen"); return of(undefined); })
+    ).subscribe();
   }
 
+  /**
+   * Returns an concert demo template
+   * @return    concert object filled with demo values
+   */
   getConcertTemplate(): Concert {
     return {
       description: "Hier könnte Ihre Konzertbeschreibung stehen",

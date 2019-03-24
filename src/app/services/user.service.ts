@@ -34,7 +34,7 @@ export class UserService {
    */
   sendLoginData(username: string, password: string): void {
     const postBody = {user: username, password: password };
-    this.http.post<{username: string}>( this.URL_BACKEND + this.PATH_LOGIN,postBody, this.httpOptions )
+    this.http.post<{username: string}>( this.URL_BACKEND + this.PATH_LOGIN, postBody, this.httpOptions )
       .pipe(
         map( response => !!response ? response.username : undefined),
         catchError( err => of(undefined)),
