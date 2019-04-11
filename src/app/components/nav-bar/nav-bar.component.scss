@@ -4,8 +4,9 @@
  * Variables
  */
 $navbar-height: 55px;
+$button-height: 25px;
 
-$logo-height: 105px;
+$logo-height: 95px;
 $logo-left: 2px;
 $logo-top: 2px;
 
@@ -18,10 +19,10 @@ $font-size:  $font-size-small;
 $font-color-transparent: $color-gray-5;
 $font-color-normal: $color-gray-5;
 $font-color-transparent-highlight: $color-gray-9;
-$font-color-normal-highlight: $color-gray-0;
+$font-color-normal-highlight: $color-gray-9;
 
 $navbar-background-transparent: rgba(black, 0);
-$navbar-background-normal: rgba($color-gray-9, 0.95);
+$navbar-background-normal: rgba($color-gray-1, 0.97);
 $navbar-background-transition: background-color 500ms ease-in-out;
 
  /**
@@ -45,7 +46,7 @@ img#nav-bar-logo {
 
 div#nav-bar-container {
     width: 100%;
-    height: $navbar-height;
+    min-height: $navbar-height;
     position: fixed;
     top:0;
     z-index: 100;
@@ -54,6 +55,7 @@ div#nav-bar-container {
     color: $font-color-normal;
     -webkit-transition:  $navbar-background-transition;
     transition:  $navbar-background-transition;
+
 
     &.transparent{
       background-color: $navbar-background-transparent;
@@ -76,6 +78,10 @@ div#nav-bar-container {
       }
     }
 
+    &.mobile:not(.folded-out) > .nav-bar-items-container {
+      display: none;
+    }
+
 }
 
 div.nav-bar-items-container {
@@ -85,7 +91,13 @@ div.nav-bar-items-container {
   justify-content: center;
   align-items: flex-end;
 
-  height: $navbar-height;
+  min-height: $navbar-height;
+
+  &.mobile {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
 }
 
 
@@ -123,4 +135,41 @@ div.nav-bar-item {
 .selected {
     box-shadow: inset 0 0px 0 white, inset 0 -2px 0 $font-color-normal-highlight;
     color: $font-color-normal-highlight;
+}
+
+// Burger/close button
+.navbar-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: $item-padding;
+  height: $navbar-height;
+
+  .navbar-button {
+    height: $button-height;
+    width: $button-height;
+    background-size: $button-height $button-height;
+    margin-right: 10px;
+
+    &.burger{
+      background-image: url("src/assets/icons/burger_gray5.png");
+
+      &:hover{
+        background-image: url("src/assets/icons/burger_gray9.png");
+      }
+    }
+
+    &.cross{
+      background-image: url("src/assets/icons/cross_gray5.png");
+
+      &:hover{
+        background-image: url("src/assets/icons/cross_gray9.png");
+      }
+    }
+
+    &:hover{
+      cursor: pointer;
+    }
+  }
 }

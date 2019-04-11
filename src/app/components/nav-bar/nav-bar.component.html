@@ -1,20 +1,36 @@
 <div class="placeholder"></div>
-<img src="../../assets/icons/logo.gif" id="nav-bar-logo"
-        [class.transparent]="transparent"/>
-<div id="nav-bar-container" *ngIf="! mobileService.isMobile"
-    [class.transparent]="transparent">
 
-  <div class="nav-bar-items-container">
-    <div class="nav-bar-item" [class.selected]="this.router.url === '/home'"
-      [routerLink]="['/home']">HOME</div>
+<img src="../../assets/icons/logo.gif" id="nav-bar-logo" [class.transparent]="transparent" />
 
-    <div class="nav-bar-item" [class.selected]="this.router.url === '/goehc'"
-      [routerLink]="['/goehc']">GÖTTINGEN HARDCORE</div>
+<div id="nav-bar-container" [ngClass]="{
+      'transparent': !mobileService.isMobile && transparent,
+      'mobile':mobileService.isMobile,
+      'folded-out': foldedOut}">
 
-    <div class="nav-bar-item" [class.selected]="this.router.url === '/undergroundremains'"
-      [routerLink]="['/undergroundremains']">UNDERGROUND REMAINS</div>
-
-    <div class="nav-bar-item" [class.selected]="this.router.url === '/chamaeleon'"
-      [routerLink]="['/chamaeleon']">CHAMÄLEON</div>
+  <div *ngIf="mobileService.isMobile" class="navbar-buttons">
+    <div (click)="foldedOut = !foldedOut" class="navbar-button" [ngClass]="{
+            'cross': foldedOut,
+            'burger': !foldedOut }">
+    </div>
   </div>
+
+  <div class="nav-bar-items-container" [class.mobile]="mobileService.isMobile">
+
+    <div class="nav-bar-item" [routerLink]="['/home']" routerLinkActive="selected">
+      HOME
+    </div>
+
+    <div class="nav-bar-item" [routerLink]="['/goehc']" routerLinkActive="selected">
+      GÖTTINGEN HARDCORE
+    </div>
+
+    <div class="nav-bar-item" [routerLink]="['/undergroundremains']" routerLinkActive="selected">
+      UNDERGROUND REMAINS
+    </div>
+
+    <div class="nav-bar-item" [routerLink]="['/chamaeleon']" routerLinkActive="selected">
+      CHAMÄLEON
+    </div>
+  </div>
+
 </div>
