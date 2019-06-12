@@ -5,20 +5,48 @@
     <div class="contact-header">{{ name }}</div>
     <div class="contact-description">{{ summary }}</div>
     <div class="contact-social-media">
-      <img *ngIf="!!contactLinks.mail" src="../../../assets/icons/social-media/mail.png">
-      <img *ngIf="!!contactLinks.website" src="../../../assets/icons/social-media/website.png">
-      <img *ngIf="!!contactLinks.instagram" src="../../../assets/icons/social-media/instagram.png">
-      <img *ngIf="!!contactLinks.facebook" src="../../../assets/icons/social-media/facebook.png">
-      <img *ngIf="!!contactLinks.youtube" src="../../../assets/icons/social-media/youtube.png">
-      <img *ngIf="!!contactLinks.linkedin" src="../../../assets/icons/social-media/linkedin.png">
-      <img *ngIf="!!contactLinks.amazon" src="../../../assets/icons/social-media/amazon.png">
-      <img *ngIf="!!contactLinks.audio" src="../../../assets/icons/social-media/audio.png">
-      <img *ngIf="!!contactLinks.android"src="../../../assets/icons/social-media/android.png">
-      <img *ngIf="!!contactLinks.blog" src="../../../assets/icons/social-media/blog.png">
-      <img *ngIf="!!contactLinks.photo" src="../../../assets/icons/social-media/photo.png">
-      <img *ngIf="!!contactLinks.shopping"src="../../../assets/icons/social-media/shopping.png">
-      <img *ngIf="!!contactLinks.twitter" src="../../../assets/icons/social-media/twitter.png">
-      <img *ngIf="!!contactLinks.whatsapp" src="../../../assets/icons/social-media/whatsapp.png">
+      <a [href]="'mailto:' + contactLinks.mail">
+        <img *ngIf="!!contactLinks.mail" src="../../../assets/icons/social-media/mail.png">
+      </a>
+      <a [href]="contactLinks.website" target="_blank">
+        <img *ngIf="!!contactLinks.website" src="../../../assets/icons/social-media/website.png">
+      </a>
+      <a [href]="contactLinks.instagram" target="_blank">
+        <img *ngIf="!!contactLinks.instagram" src="../../../assets/icons/social-media/instagram.png">
+      </a>
+      <a [href]="contactLinks.facebook" target="_blank">
+        <img *ngIf="!!contactLinks.facebook" src="../../../assets/icons/social-media/facebook.png">
+      </a>
+      <a [href]="contactLinks.youtube" target="_blank">
+        <img *ngIf="!!contactLinks.youtube" src="../../../assets/icons/social-media/youtube.png">
+      </a>
+      <a [href]="contactLinks.linkedin" target="_blank">
+        <img *ngIf="!!contactLinks.linkedin" src="../../../assets/icons/social-media/linkedin.png">
+      </a>
+      <a [href]="contactLinks.amazon" target="_blank">
+        <img *ngIf="!!contactLinks.amazon" src="../../../assets/icons/social-media/amazon.png">
+      </a>
+      <a [href]="contactLinks.audio" target="_blank">
+        <img *ngIf="!!contactLinks.audio" src="../../../assets/icons/social-media/audio.png">
+      </a>
+      <a [href]="contactLinks.android" target="_blank">
+        <img *ngIf="!!contactLinks.android"src="../../../assets/icons/social-media/android.png">
+      </a>
+      <a [href]="contactLinks.blog" target="_blank">
+        <img *ngIf="!!contactLinks.blog" src="../../../assets/icons/social-media/blog.png">
+      </a>
+      <a [href]="contactLinks.photo" target="_blank">
+        <img *ngIf="!!contactLinks.photo" src="../../../assets/icons/social-media/photo.png">
+      </a>
+      <a [href]="contactLinks.shopping" target="_blank">
+        <img *ngIf="!!contactLinks.shopping"src="../../../assets/icons/social-media/shopping.png">
+      </a>
+      <a [href]="contactLinks.twitter" target="_blank">
+        <img *ngIf="!!contactLinks.twitter" src="../../../assets/icons/social-media/twitter.png">
+      </a>
+      <a [href]="contactLinks.whatsapp" target="_blank">
+        <img *ngIf="!!contactLinks.whatsapp" src="../../../assets/icons/social-media/whatsapp.png">
+      </a>
     </div>
   </div>
 </div>

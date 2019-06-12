@@ -1,5 +1,14 @@
 @import "~src/styles.scss";
 
+// Remove standard hyperlink animation
+a{
+  box-shadow: none !important;
+}
+
+a:hover::after{
+  height: 0%;
+}
+
 .contact-container {
   display: flex;
   flex-direction: row;
