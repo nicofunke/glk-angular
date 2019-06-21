@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ConcertService } from 'src/app/services/concert.service';
+import { MobileService } from 'src/app/services/mobile.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chamaeleon',
@@ -7,7 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChamaeleonComponent implements OnInit {
 
-  constructor() { }
+  constructor(  private concertService: ConcertService,
+    public mobileService: MobileService,
+    public router: Router ) { }
+
+public nextConcerts$ = this.concertService.getNextConcerts();
 
   ngOnInit() {
   }

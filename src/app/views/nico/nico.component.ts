@@ -5,22 +5,21 @@ import { Router } from '@angular/router';
 import { ContactLinks } from 'src/app/interfaces/contact-links.interface';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-nico',
+  templateUrl: './nico.component.html',
+  styleUrls: ['./nico.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class NicoComponent implements OnInit {
 
   constructor(  private concertService: ConcertService,
     public mobileService: MobileService,
     public router: Router ) { }
 
-  public nextConcerts$ = this.concertService.getNextConcerts();
-
   public contactLinks: ContactLinks ={
-      facebook: "https://www.facebook.com/goettingenlivekultur/",
-      mail: "goettingenhc@gmail.com",
-      instagram: "https://www.instagram.com/goettingen_live_kultur_e.v/"
+    facebook: "https://www.facebook.com/nico.funke.12",
+    linkedin: "https://de.linkedin.com/in/nicofunke",
+    mail: "nico.funke@stud.uni-goettingen.de",
+    instagram: "https://www.instagram.com/picofiete/"
   }
 
   ngOnInit() {

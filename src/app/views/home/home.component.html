@@ -1,35 +1,29 @@
-<div class="text-container">
+<glk-top-img content="../../../assets/top-img-movie-woj.webm"
+            titleText="Göttingen Live Kultur e.V."></glk-top-img>
 
-  <h2>Über den Verein</h2>
-  Lorem ipsum dolor sit amet, <a href="">Klicken</a> consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-  Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+<div class="content-container" [class.mobile]="mobileService.isMobile">
 
-  <h2>Nächste Konzerte</h2>
-  Das sind alle Konzerte in nächster Zeit
-  <div class="concert-thumbnails-container">
-      <div class="concert-thumbnail">
-          Konzert 1
-      </div>
-      <div class="concert-thumbnail">
-              Konzert 2
-      </div>
-      <div class="concert-thumbnail">
-              Konzert 3
-      </div>
-      <div class="concert-thumbnail">
-              Konzert 4
-      </div>
-      <div class="concert-thumbnail">
-              Konzert 5
-      </div>
-      <div class="concert-thumbnail">
-              Konzert 6
-      </div>
-      <div class="concert-thumbnail">
-              Konzert 7
-      </div>
+    <div class="text-container">
+
+    <h2>Über den Verein</h2>
+    Göttingen Live Kultur e.V. ist der Trägerverein der Konzertgruppen Göttingen Hardcore(Hardcore), Underground Remains(Metal) und der Chamäleon Gruppe(Diverses).
+    Wir sind eine Gruppe aus Leuten, die Spaß an der Musik haben und arbeiten alle ehrenamtlich für den Verein, weil wir Bock auf mehr Konzerte in Göttingen haben. <br>
+    Seit einigen Jahren stellen wir schon, gemeinsam als Verein, verschiedene Konzerte in Göttingen auf die Beine. Die Highlights sind das alljährliche Underground Remains Open Air und das GöHc Sommerfest, zu denen jedes Jahr mehrere hundert Besucher kommen. 
+    <br>
+    Zeigt, dass die Szene lebt und besucht uns im Moshpit!
+        
+    <h2>Nächste Konzerte</h2>
+    Das sind die nächsten geplanten Konzerte des Vereins
+    <glk-concert-thumbnails [concerts]="nextConcerts$ | async"></glk-concert-thumbnails>
+
+    <h2>Kontakt</h2>
+
+    <glk-contact-information
+      [contactLinks]="contactLinks"
+      name="Göttingen Live Kultur e.V."
+      summary="Trägerverein"
+      profilePicture="assets/icons/logo.gif">
+    </glk-contact-information>
   </div>
-
-  <h2>Kontakt</h2>
-  Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto
 </div>
+

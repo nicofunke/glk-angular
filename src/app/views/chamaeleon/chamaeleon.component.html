@@ -1,19 +1,17 @@
+<glk-top-img content="../../../assets/img/title/cham.jpeg"
+            titleText="Chamäleon Gruppe"></glk-top-img>
 
-  <div class="text-container">
+<div class="content-container" [class.mobile]="mobileService.isMobile">
 
-    <h2>FRESH Like A Chamaeleon!</h2>
-    Was geht ab?
-    Was geht ab?
-    Was geht ab?
-    Was geht ab?
-    Was geht ab?
-    Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto
-    Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto
-    Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto
-    Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto
-    Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto
+    <div class="text-container">
 
-    <h2>Kontakt</h2>
-    Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto
+    <h2>Über die Chamäleons</h2>
+    Bei der Chamäleon Gruppe ist der Name Programm. Sei es ein Ukulelen Konzert, Hip Hop oder Punk, das Chamäleon passt sich allem an und ist offen für ein großes Spektrum verschiedener Stile und Künstler.
+
+    <h2>Nächste Konzerte</h2>
+    Das sind die nächsten geplanten Konzerte der Crew
+    <glk-concert-thumbnails [concerts]="nextConcerts$ | async"></glk-concert-thumbnails>
+
   </div>
+</div>
 

@@ -58,7 +58,7 @@ $color-gray-0: #0C0C0C;
   margin: 0;
   font-family:     Open_Sans, Verdana,Arial,Courier;
   overflow-y: scroll;
-  background-color: $color-gray-6;
+  background-color: $color-gray-9;
 }
 
  // Links
@@ -138,3 +138,12 @@ h2 {
     margin-top: 30px;
 }
 }
+
+.embedded-video {
+    background-image: linear-gradient(160deg, $color-gray-2, $color-gray-0);
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    padding: 20px 0;
+  }

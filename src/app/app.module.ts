@@ -19,6 +19,7 @@ import { ConcertThumbnailsComponent } from "./components/concert-thumbnails/conc
 import { ContactInformationComponent } from "./components/contact-information/contact-information.component";
 import { LoginViewComponent } from "./views/login-view/login-view.component";
 import { FormsModule } from "@angular/forms";
+import { NicoComponent } from './views/nico/nico.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { FormsModule } from "@angular/forms";
     ConcertThumbnailsComponent,
     ContactInformationComponent,
     ConcertDetailViewComponent,
-    LoginViewComponent
+    LoginViewComponent,
+    NicoComponent
   ],
   imports: [
     BrowserModule,
