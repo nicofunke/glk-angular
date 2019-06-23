@@ -1,105 +1,116 @@
-<glk-top-img
-  *ngIf="!!concert"
-  [content]="pictureToSrcAttribute(concert.picture)"
-  [titleText]="">
+<glk-top-img *ngIf="!!concert" [content]="pictureToSrcAttribute(concert.picture)" [titleText]="">
 </glk-top-img>
 
 <div *ngIf="!!concert" class="content-container concert-detail-container">
 
-  <!-- Left info box  -->
+  <!-- Left area  -->
   <div class="concert-left-area">
 
     <!-- Image Box -->
     <div class="concert-image-container">
-      <input  type="file" (change)="changePicture($event)" #pictureUpload>
-      <img [src]="pictureToSrcAttribute(concert.picture)" (click)="editMode && pictureUpload.click()"/>
+      <input type="file" (change)="changePicture($event)" #pictureUpload>
+      <img [src]="pictureToSrcAttribute(concert.picture)" (click)="editMode && pictureUpload.click()" />
     </div>
 
     <!-- Details  Box-->
     <div class="concert-info-box-details">
-      <div *ngIf="concert.date"  class="detail-item">
+      <div *ngIf="concert.date" class="detail-item">
         <img src="../../../assets/icons/calendar_white.png" />
-        <div #date contentEditable="{{editMode}}"
-        [textContent]="concert.date" (input)="concert.date=$event.target.textContent"></div>
+        <div #date contentEditable="{{editMode}}" [textContent]="concert.date"
+          (input)="concert.date=$event.target.textContent"></div>
       </div>
       <div *ngIf="concert.place" class="detail-item">
         <img src="../../../assets/icons/location_white.png" />
-        <div #place contentEditable="{{editMode}}"
-          [textContent]="concert.place" (input)="concert.place=$event.target.textContent"></div>
+        <div #place contentEditable="{{editMode}}" [textContent]="concert.place"
+          (input)="concert.place=$event.target.textContent"></div>
       </div>
     </div>
     <div class="concert-info-box-details">
       <div *ngIf="concert.doors" class="detail-item">
         <img src="../../../assets/icons/clock_white.png" />
         <div>Doors:
-          <span #doors contentEditable="{{editMode}}"
-          [textContent]="concert.doors" (input)="concert.doors=$event.target.textContent"></span>
+          <span #doors contentEditable="{{editMode}}" [textContent]="concert.doors"
+            (input)="concert.doors=$event.target.textContent"></span>
         </div>
       </div>
-      <div *ngIf="concert.begin"  class="detail-item">
-          <img src="../../../assets/icons/flash_white.png" />
-          <div>Beginn:
-            <span #begin contentEditable="{{editMode}}"
-            [textContent]="concert.begin" (input)="concert.begin=$event.target.textContent"></span>
-          </div>
+      <div *ngIf="concert.begin" class="detail-item">
+        <img src="../../../assets/icons/flash_white.png" />
+        <div>Beginn:
+          <span #begin contentEditable="{{editMode}}" [textContent]="concert.begin"
+            (input)="concert.begin=$event.target.textContent"></span>
         </div>
+      </div>
     </div>
 
-    <!-- options buttons -->
-    <div class="options-buttons">
-        <a (click)="createNewConcert()">
-            <img src="assets/icons/add_black.png" height="14px"/> Neues Konzert
-          </a>
-      <a *ngIf="!editMode" (click)="editMode=true">
-        <img src="assets/icons/pencil_black.png" height="14px"/> Konzert bearbeiten
-      </a>
-      <a *ngIf="editMode" (click)="saveChanges()">
-        <img src="assets/icons/save_black.png" height="14px"/> Änderungen speichern
-      </a>
-      <a *ngIf="editMode" (click)="cancelEdit()">
-        <img src="assets/icons/cross_black.png" height="14px"/> Bearbeitung abbrechen
-      </a>
-      <a (click)="deleteConcert()">
-        <img src="assets/icons/trash_black.png" height="14px"/> Konzert löschen
-      </a>
+    <!-- buttons for new/delete -->
+    <div class="text-center">
+      <div class="btn-group mt-2" *ngIf="userService.username$ | async">
+        <button type="button" class="btn btn-success" (click)="createNewConcert()">
+          <img src="assets/icons/add_white.png" height="14px" /> Neues Konzert
+        </button>
+        <button type="button" class="btn btn-danger" (click)="deleteConcert()">
+          <img src="assets/icons/trash_white.png" height="14px" /> Konzert Löschen
+        </button>
+      </div>
     </div>
   </div>
 
 
 
-  <!-- Right Text Area -->
+  <!-- Right Area -->
   <div class="concert-detail-right-box">
-    <h2 #bands contentEditable="{{editMode}}"
-    [textContent]="concert.bands" (input)="concert.bands=$event.target.textContent"></h2>
-    <div class="subheader">
+
+    <!-- Buttons for save/edit/cancel -->
+    <button type="button" class="btn btn-primary" *ngIf="(userService.username$ | async) && !editMode"
+      (click)="editMode=true">
+      <img src="assets/icons/pencil_white.png" height="14px" /> Bearbeiten
+    </button>
+    <div class="buttons-container" *ngIf="editMode">
+      <button type="button" class="btn btn-success" (click)="saveChanges()">
+        <img src="assets/icons/save_white.png" height="14px" /> Speichern
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="cancelEdit()">
+        <img src="assets/icons/cross_white.png" height="14px" /> Abbrechen
+      </button>
+    </div>
+
+
+    <!-- Concert header/Bands  -->
+    <h2 *ngIf="!editMode" [textContent]="concert.bands"></h2>
+    <div class="input-group mt-2" *ngIf="editMode">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Bands</span>
+      </div>
+      <input type="text" class="form-control" [(ngModel)]="concert.bands">
+    </div>
+
+    <!-- Facebook/Ticket links -->
+    <div class="subheader" *ngIf="!editMode">
       <button *ngIf="concert.fblink && !editMode" class="facebook" (click)="openLink(concert.fblink)">
-        <img height="14px" src="../../../assets/icons/facebook_white.png"/>
+        <img height="14px" src="../../../assets/icons/facebook_white.png" />
         Facebook
       </button>
-
       <button *ngIf="concert.buylink && !editMode" class="ticket" (click)="openLink(concert.buylink)">
-          <img height="14px" src="../../../assets/icons/ticket_white.png"/>
-          Tickets
+        <img height="14px" src="../../../assets/icons/ticket_white.png" />
+        Tickets
       </button>
     </div>
-
-    <b *ngIf="editMode">Beschreibung: </b>
-    <div #description contentEditable="{{editMode}}" [textContent]="concert.description"
-          (input)="concert.description=$event.target.textContent"></div>
-  </div>
-
-  <!-- Edit links container -->
-  <div *ngIf="editMode" class="edit-links-container">
-    <div>
-        <b>Ticketlink: </b> <span  class="edit-link" #buyLink contentEditable="{{editMode}}"
-        [textContent]="concert.buylink" (input)="concert.buylink=$event.target.textContent"></span>
+    <div class="input-group mt-2" *ngIf="editMode">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Facebook</span>
+      </div>
+      <input type="text" class="form-control" [(ngModel)]="concert.fblink">
     </div>
-    <div>
-        <b>Facebooklink: </b> <span  class="edit-link" #fbLink contentEditable="{{editMode}}"
-        [textContent]="concert.fblink" (input)="concert.fblink=$event.target.textContent"></span>
+    <div class="input-group mt-2 mb-2" *ngIf="editMode">
+      <div class="input-group-prepend">
+        <span class="input-group-text">VVK</span>
+      </div>
+      <input type="text" class="form-control" [(ngModel)]="concert.buylink">
     </div>
-  </div>
 
+    <!-- Description -->
+    <div *ngIf="!editMode" [innerHTML]="concert.description"></div>
+    <angular-editor *ngIf="editMode" [(ngModel)]="concert.description"></angular-editor>
+
+  </div>
 </div>
-
-

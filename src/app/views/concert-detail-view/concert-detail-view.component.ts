@@ -10,6 +10,10 @@ import {
   distinctUntilChanged
 } from "rxjs/operators";
 import * as moment from "moment";
+import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { FormsModule } from '@angular/forms';
+import { UserService } from '../../services/user.service';
+
 
 @Component({
   selector: "glk-concert-detail-view",
@@ -17,6 +21,7 @@ import * as moment from "moment";
   styleUrls: ["./concert-detail-view.component.scss"]
 })
 export class ConcertDetailViewComponent implements OnInit, OnChanges {
+
   public concert: Concert;
   public concertBackup: Concert;
   public formattedDate: string;
@@ -46,13 +51,13 @@ export class ConcertDetailViewComponent implements OnInit, OnChanges {
 
   constructor(
     private route: ActivatedRoute,
-    public concertService: ConcertService
+    public concertService: ConcertService,
+    public userService: UserService
   ) {}
 
   ngOnInit() {}
 
   ngOnChanges(): void {
-    console.log("changes");
   }
 
   /**
@@ -129,4 +134,5 @@ export class ConcertDetailViewComponent implements OnInit, OnChanges {
     }
     return this.concertService.URL_BACKEND + picture;
   }
+
 }

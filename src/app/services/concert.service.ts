@@ -96,7 +96,7 @@ export class ConcertService {
     return {
       description: "Hier könnte Ihre Konzertbeschreibung stehen",
       bands: "Coole Band 1, coole Band 2 und Anhang",
-      date: "01.01.2000",
+      date: "2019-01-01",
       place: "Club Göttingen",
       doors: "12:00",
       begin: "12:00",

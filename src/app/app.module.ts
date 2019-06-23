@@ -20,6 +20,8 @@ import { ContactInformationComponent } from "./components/contact-information/co
 import { LoginViewComponent } from "./views/login-view/login-view.component";
 import { FormsModule } from "@angular/forms";
 import { NicoComponent } from './views/nico/nico.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { NicoComponent } from './views/nico/nico.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AngularEditorModule,
+    NgbModule
   ],
   providers: [MobileService],
   bootstrap: [AppComponent]

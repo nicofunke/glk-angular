@@ -50,9 +50,9 @@ $info-box-color: $color-gray-9;
 .concert-info-box-details {
   padding: 10px;
   margin-top: -30px;
-  padding-top: 20px;
-  margin-left: -40px;
-  margin-right: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-top: 40px;
   padding-right: 20px;
 
 
@@ -94,6 +94,7 @@ $info-box-color: $color-gray-9;
     border: none;
     padding: 5px 10px;
     margin-right: 5px;
+    margin-bottom: 8px;
     align-items: center;
 
     -webkit-transition: all 0.2s ease-in-out;
@@ -116,24 +117,7 @@ $info-box-color: $color-gray-9;
   }
 }
 
-.edit-links-container {
-  width: 100%;
-  max-width: 100%;;
-  overflow-x: auto;
-  background-color: $color-gray-9;
-  border-radius: 8px;
-  padding: 10px;
-
-  .edit-link {
-    font-size: $font-size-smaller;
-    white-space: nowrap;
-    text-decoration: underline;
-  }
-}
-
-.options-buttons {
-  a {
-    display: table;
-    margin-top: 5px;
-  }
+.buttons-container{
+  display: flex;
+  justify-content: space-between;
 }
