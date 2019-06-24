@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { ConcertService } from "../../services/concert.service";
 import { Concert } from "../../interfaces/concert.interface";
 import * as moment from "moment";
+import { MobileService } from '../../services/mobile.service';
 
 @Component({
   selector: "glk-concert-thumbnails",
@@ -10,7 +11,8 @@ import * as moment from "moment";
 })
 export class ConcertThumbnailsComponent implements OnInit {
 
-  constructor( public concertService: ConcertService ) { }
+  constructor( public concertService: ConcertService,
+               public mobileService: MobileService) { }
 
   @Input() concerts: Concert[];
 

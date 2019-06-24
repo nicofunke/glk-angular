@@ -5,30 +5,14 @@
  */
 $transition: 0.4s ease-in-out;
 $height: 200px;
-$min-width: 320px;
-$margin: 3px;
-$border: 1px solid black;
 $image-filter: grayscale(60%) blur(5px);
 
 /**
  * Elements
  */
-div.concert-thumbnails-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap-reverse;
-    justify-content: center;
-    align-content: stretch;
-    padding: 0;
-    margin-top: 10px;
-}
 
 div.concert-thumbnail {
   height: $height;
-  border: $border;
-  min-width: $min-width;
-  flex-grow: 1;
-  margin: $margin;
   text-align: center;
   position: relative;
   background-color:  $color-gray-6;
@@ -46,19 +30,25 @@ div.concert-thumbnail {
   }
 }
 
-// --- Elements inside thumbnail
-div.concert-thumbnail-image {
-  background-image: inherit;
-
-  // TODO: The next two lines need to be fixed later on
-  width: 110% !important;
-  height: 110% !important;
+div.mobile-info-box {
+  background-color: $color-gray-1;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-div.blurred {
+// --- Elements inside thumbnail
+div.concert-thumbnail-image-blurred {
+  background-image: inherit;
   z-index: 1;
   filter: $image-filter;
   -webkit-filter: $image-filter;
+}
+
+div.clean-image {
+  background-image: inherit;
 }
 
 div.vanish-on-hover {
@@ -84,9 +74,11 @@ div.concert-thumbnail-title {
     padding: 20px;
     font-size:  $font-size-bigger;
     font-weight: 600;
+    max-width: 100%;
   }
   span.date{
     font-weight: 400;
     font-size:  $font-size-medium;
+    max-width: 100%;
   }
 }
