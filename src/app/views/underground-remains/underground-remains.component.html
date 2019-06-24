@@ -1,31 +1,36 @@
-<glk-top-img content="../../../assets/img/title/ur.jpg"
-            titleText="Underground Remains"></glk-top-img>
+<glk-top-img content="../../../assets/img/title/ur.jpg" titleText="Underground Remains"></glk-top-img>
 
 <div class="content-container" [class.mobile]="mobileService.isMobile">
 
   <div class="text-container">
 
     <h2>Über die Gruppe</h2>
-    Underground Remains oder auch unter dem Namen "Music Parasites" bekannt ist die Gruppe Metaller, die sich seit einigen Jahren das Ziel gesetzt hat der Göttinger Metalszene ein Open Air zu bieten.
-    Mittlerweile zählt das Underground Remains Open Air zum jährlich Highlight der Göttinger Metalszene und die Gruppe organisiert auch darüber hinaus das ganze Jahr über Konzerte.
+    Underground Remains oder auch unter dem Namen "Music Parasites" bekannt ist die Gruppe Metaller, die sich seit
+    einigen Jahren das Ziel gesetzt hat der Göttinger Metalszene ein Open Air zu bieten.
+    Mittlerweile zählt das Underground Remains Open Air zum jährlich Highlight der Göttinger Metalszene und die Gruppe
+    organisiert auch darüber hinaus das ganze Jahr über Konzerte.
     <br>
     Dass die Jungs ordentlich was leisten hat auch Krachmucker TV erkannt und war 2017 zu Besuch in Göttingen.
   </div>
-    <div class="embedded-video">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/oHVN6EHqDdA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>    </div>
-    <div class="text-container">
-    <h2>Nächste Konzerte</h2>
-    Das sind die nächsten geplanten Konzerte der Crew
-    <glk-concert-thumbnails [concerts]="nextConcerts$ | async"></glk-concert-thumbnails>
+  <div class="embedded-video">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/oHVN6EHqDdA" frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> </div>
+  <div class="text-container">
 
     <h2>Kontakt</h2>
 
-    <glk-contact-information
-      [contactLinks]="contactLinks"
-      name="Underground Remains"
-      summary="Metal Crew"
+    <glk-contact-information [contactLinks]="contactLinks" name="Underground Remains" summary="Metal Crew"
       profilePicture="assets/img/profile_undergroundremains.png">
     </glk-contact-information>
+
   </div>
 </div>
+<div class="content-container mt-4" [class.mobile]="mobileService.isMobile">
+  <div class="text-container">
 
+    <h2>Nächste Konzerte</h2>
+    Das sind die nächsten Konzerte des Vereins
+    <glk-concert-thumbnails [concerts]="nextConcerts$ | async"></glk-concert-thumbnails>
+
+  </div>
+</div>

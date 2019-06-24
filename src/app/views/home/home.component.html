@@ -5,7 +5,6 @@
 
 
 <div class="content-container" [class.mobile]="mobileService.isMobile">
-
   <div class="text-container">
 
     <h2>Über den Verein</h2>
@@ -18,15 +17,20 @@
     hundert Besucher kommen.
     <br>
     Zeigt, dass die Szene lebt und besucht uns im Moshpit!
-
-    <h2>Nächste Konzerte</h2>
-    Das sind die nächsten geplanten Konzerte des Vereins
-    <glk-concert-thumbnails [concerts]="nextConcerts$ | async"></glk-concert-thumbnails>
-
     <h2>Kontakt</h2>
 
     <glk-contact-information [contactLinks]="contactLinks" name="Göttingen Live Kultur e.V." summary="Trägerverein"
       profilePicture="assets/icons/logo.gif">
     </glk-contact-information>
+
+  </div>
+</div>
+<div class="content-container mt-4" [class.mobile]="mobileService.isMobile">
+  <div class="text-container">
+
+    <h2>Nächste Konzerte</h2>
+    Das sind die nächsten geplanten Konzerte des Vereins
+    <glk-concert-thumbnails [concerts]="nextConcerts$ | async"></glk-concert-thumbnails>
+
   </div>
 </div>
