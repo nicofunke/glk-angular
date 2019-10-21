@@ -41,3 +41,9 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Sensible database information
+database.ini
+
+# Concert images
+backend/PHP/img/concert/*

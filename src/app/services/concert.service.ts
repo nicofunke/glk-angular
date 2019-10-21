@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { tap, catchError } from "rxjs/operators";
 import { Concert } from "../interfaces/concert.interface";
 import { Observable, of } from "rxjs";
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: "root"
@@ -11,9 +12,8 @@ import { Observable, of } from "rxjs";
 export class ConcertService {
 
   /**
-   * Backend URLs
+   * Backend Paths
    */
-  public URL_BACKEND = "http://localhost/glk_backend/";
   public PATH_NEXT_CONCERTS = "getNextConcerts";
   public PATH_SINGLE_CONCERT = "getConcert";
   public PATH_SAVE_CONCERT = "saveConcert";
@@ -23,11 +23,10 @@ export class ConcertService {
    * HttpOptions for post requests
    */
   httpOptions = {
-      headers:
-          new HttpHeaders (
-          {
-              "Content-Type": "application/x-www-form-urlencoded"
-          }),
+    headers: new HttpHeaders({
+      "Content-Type": "application/x-www-form-urlencoded"
+    }),
+    withCredentials: true
   };
 
   private nextConcerts: Concert[];
@@ -39,7 +38,7 @@ export class ConcertService {
    */
   getNextConcerts(): Observable<Concert[]> {
     return !! this.nextConcerts ? of(this.nextConcerts)
-            : this.http.get<Concert[]>( this.URL_BACKEND + this.PATH_NEXT_CONCERTS ).pipe(
+            : this.http.get<Concert[]>( environment.backendURL + this.PATH_NEXT_CONCERTS ).pipe(
               tap( concerts => this.nextConcerts = concerts),
               catchError( err => of(undefined))
             );
@@ -54,9 +53,8 @@ export class ConcertService {
           this.nextConcerts.find( concert => concert.id === id.toString() ) : undefined;
 
     // TODO: look in previousConcerts
-
     return outputConcert ? of(outputConcert) :
-         this.http.post<Concert>(this.URL_BACKEND + this.PATH_SINGLE_CONCERT ,
+         this.http.post<Concert>(environment.backendURL + this.PATH_SINGLE_CONCERT ,
             {id: id}, this.httpOptions ).pipe(
             catchError( err => of(undefined))
          );
@@ -68,9 +66,9 @@ export class ConcertService {
    * @return    boolean, if saved successfully
    */
   saveConcert(concert: Concert): void {
-    this.http.post(this.URL_BACKEND + this.PATH_SAVE_CONCERT, concert, this.httpOptions).pipe(
+    this.http.post(environment.backendURL + this.PATH_SAVE_CONCERT, concert, this.httpOptions).pipe(
       // TODO: Add Toasts
-      tap( x => console.log("Gespeichert!, x")),
+      // tap( x => console.log("Gespeichert!, x")),
       catchError( err => {console.log("Error: Speichern des Konzerts fehlgechlagen"); return of(undefined); })
     ).subscribe();
   }
@@ -81,9 +79,9 @@ export class ConcertService {
    * @return            boolean, if deleted successfully
    */
   deleteConcert(concertId: string): void {
-    this.http.post(this.URL_BACKEND + this.PATH_DELETE_CONCERT, {id: concertId}, this.httpOptions).pipe(
+    this.http.post(environment.backendURL + this.PATH_DELETE_CONCERT, {id: concertId}, this.httpOptions).pipe(
       // TODO: Add Toasts
-      tap( x => console.log("Gespeichert!, x")),
+      // tap( x => console.log("Gespeichert!, x")),
       catchError( err => {console.log("Error: Speichern des Konzerts fehlgechlagen"); return of(undefined); })
     ).subscribe();
   }

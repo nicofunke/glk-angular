@@ -3,7 +3,7 @@
 
     <div *ngFor="let concert of concerts" class="col-12 col-md-6 p-1">
       <div [routerLink]="['/concert', concert.id]"
-        [style.background-image]="'url(' + concertService.URL_BACKEND + concert.picture + ')'"
+        [style.background-image]="'url(' + this.backendImgURL + concert.picture + ')'"
         class="concert-thumbnail">
 
         <!-- Clean image -->

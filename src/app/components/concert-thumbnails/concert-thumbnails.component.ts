@@ -3,6 +3,7 @@ import { ConcertService } from "../../services/concert.service";
 import { Concert } from "../../interfaces/concert.interface";
 import * as moment from "moment";
 import { MobileService } from '../../services/mobile.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: "glk-concert-thumbnails",
@@ -11,8 +12,10 @@ import { MobileService } from '../../services/mobile.service';
 })
 export class ConcertThumbnailsComponent implements OnInit {
 
-  constructor( public concertService: ConcertService,
-               public mobileService: MobileService) { }
+  constructor(public concertService: ConcertService,
+    public mobileService: MobileService) { }
+
+  public backendImgURL:string = environment.backendImgURL;
 
   @Input() concerts: Concert[];
 
@@ -23,7 +26,7 @@ export class ConcertThumbnailsComponent implements OnInit {
    * Reformats a datestring from YYYY-MM-DD to DD.MM.YYYY
    * @param inputDateString datestring as YYYY-MM-DD
    */
-  public formatDateString( inputDateString: string): string {
+  public formatDateString(inputDateString: string): string {
     const inputDateMoment = moment(inputDateString, "YYYY-MM-DD");
     return inputDateMoment.format("DD.MM.YYYY");
   }

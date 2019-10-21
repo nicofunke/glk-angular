@@ -13,6 +13,7 @@ import * as moment from "moment";
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { FormsModule } from '@angular/forms';
 import { UserService } from '../../services/user.service';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -132,7 +133,7 @@ export class ConcertDetailViewComponent implements OnInit, OnChanges {
     } else if (picture.match(/data:image.*/gm)) {
       return picture;
     }
-    return this.concertService.URL_BACKEND + picture;
+    return environment.backendImgURL + picture;
   }
 
 }

@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  backendURL: './backend/',
+  backendImgURL: 'backend/'
 };
