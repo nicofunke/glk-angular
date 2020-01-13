@@ -1,16 +1,12 @@
 import { Component } from "@angular/core";
 import { MobileService } from "./services/mobile.service";
 import { RouterOutlet } from "@angular/router";
-import { slideInAnimation } from "./animations";
 import { UserService } from "./services/user.service";
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"],
-  animations: [
-    slideInAnimation
-  ]
+  styleUrls: ["./app.component.scss"]
 })
 
 export class AppComponent {
