@@ -1,31 +1,23 @@
-import { LoginViewComponent } from './views/login-view/login-view.component';
-import { ConcertDetailViewComponent } from './views/concert-detail-view/concert-detail-view.component';
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
-import { HomeComponent } from "./views/home/home.component";
-import { UndergroundRemainsComponent } from "./views/underground-remains/underground-remains.component";
-import { GoehcComponent } from "./views/goehc/goehc.component";
-import { ChamaeleonComponent } from "./views/chamaeleon/chamaeleon.component";
-import { ImpressumComponent } from "./views/impressum/impressum.component";
-import { NicoComponent } from './views/nico/nico.component';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './components/sites/home/home.component';
+import { ConcertDetailsComponent } from './components/sites/concert-details/concert-details.component';
+import { ConcertsSiteComponent } from './components/sites/concerts-site/concerts-site.component';
+import { ImprintComponent } from './components/sites/imprint/imprint.component';
+import { ContactSiteComponent } from './components/sites/contact-site/contact-site.component';
+
 
 const routes: Routes = [
-  { path: "home", component: HomeComponent },
-  { path: "goehc", component: GoehcComponent },
-  { path: "chamaeleon", component: ChamaeleonComponent },
-  { path: "undergroundremains", component: UndergroundRemainsComponent },
-  { path: "impressum", component: ImpressumComponent},
-  { path: "concert/:id", component: ConcertDetailViewComponent },
-  { path: "login", component: LoginViewComponent},
-  { path: "nico", component: NicoComponent},
-  { path: "**", component: HomeComponent}
- ];
+  { path: "home", component: HomeComponent},
+  { path: "concert/:id", component: ConcertDetailsComponent },
+  { path: "concerts", component: ConcertsSiteComponent},
+  { path: "imprint", component: ImprintComponent},
+  { path: "contact", component: ContactSiteComponent},
+  { path: "**", redirectTo: "home"}
+]
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    scrollPositionRestoration: "enabled"
-    })],
+  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule]
 })
-
 export class AppRoutingModule { }

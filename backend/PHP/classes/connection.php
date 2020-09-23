@@ -116,7 +116,8 @@ class Connection
 		}
 
 		if ($group == "*") { 	// all promoters
-			$query =  "SELECT * FROM concert WHERE date >= CURRENT_DATE  ORDER BY date";
+			// TODO: Replace mock date by today
+			$query =  "SELECT * FROM concert WHERE date >= CURDATE()  ORDER BY date";
 		} else {		// special promoter
 			// !!Escape group for SQL
 			$group = $this->mysqli->real_escape_string($group);

@@ -1,0 +1,31 @@
+//$primary: green;
+
+// Color palette
+$cdark: #1b1b2f;
+$cred: #e43f5a;
+$cdarkred: #902839;
+$cgray: #15161a;
+$clightblue : #1f4068;
+$cdarkblue: #162447;
+$clight: #f7f2e7;
+
+// New defined colors
+$theme-colors: (
+    "cdark": $cdark,
+    "cdarkred": $cdarkred,
+    "clight": $clight,
+    "cgray": $cgray,
+    "cred": $cred,
+    "clightblue": $clightblue,
+    "cdarkblue": $cdarkblue,
+    "black": black
+);
+
+.bg-gradient-cred {
+    background-image: linear-gradient( $cred , $cdarkred);
+}
+
+.bg-gradient-cblue {
+    background-image: linear-gradient( $cdark , $cdarkblue);
+}
+

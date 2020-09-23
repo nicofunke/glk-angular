@@ -1,0 +1,9 @@
+@import "../../../../custom-bootstrap.scss";
+
+a {
+    color: $clight;
+    &:hover {
+        color: $clightblue !important;
+        text-decoration: none;
+    }
+}

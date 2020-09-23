@@ -1,0 +1,144 @@
+<div class="min-h-100vh text-light d-flex align-items-center py-5 bg-fixed-cover-darken"
+    [style.background-image]="'url(' + pictureToSrcAttribute(concert.picture) + ')'" *ngIf="!!concert">
+    <div class="container py-5 ">
+        <div class="row py-5">
+            <div class="col-lg-5 my-3">
+                <input type="file" (change)="changePicture($event)" #pictureUpload
+                    [ngClass]="{'d-none': !!concert.picture, 'form-control-file': true }">
+                <img [src]="pictureToSrcAttribute(concert.picture)" (click)="editMode && pictureUpload.click()"
+                    class="img-fluid shadow" />
+
+                <!-- Buttons for save/edit/cancel -->
+                <div *ngIf="(userService.username$ | async) && !editMode">
+                    <div>
+                        <button type="button" class="btn btn-primary m-2" (click)="editMode=true">
+                            <fa-icon class="mx-2" [icon]="faedit"></fa-icon>
+                            Bearbeiten
+                        </button>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-success m-2" (click)="createNewConcert()">
+                            <fa-icon class="mx-2" [icon]="fanew"></fa-icon>
+                            Neues Konzert
+                        </button>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-danger m-2" (click)="deleteConcert()">
+                            <fa-icon class="mx-2" [icon]="fadelete"></fa-icon>
+                            Konzert Löschen
+                        </button>
+                    </div>
+
+                </div>
+
+                <div class="my-2" *ngIf="editMode">
+                    <button type="button" class="btn btn-success m-2" (click)="saveChanges()">
+                        <fa-icon class="mx-2" [icon]="fasave"></fa-icon>
+                        Speichern
+                    </button>
+                    <button type="button" class="btn btn-secondary m-2" (click)="cancelEdit()">
+                        <fa-icon class="mx-2" [icon]="faabort"></fa-icon>
+                        Abbrechen
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-7  my-3">
+
+                <!-- Concert header/Bands  -->
+                <h2 *ngIf="!editMode" [textContent]="concert.bands"></h2>
+                <div class="input-group mt-2" *ngIf="editMode">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Bands</span>
+                    </div>
+                    <input type="text" class="form-control" [(ngModel)]="concert.bands">
+                </div>
+
+                <!-- Facebook editing-->
+                <div class=" input-group my-2" *ngIf="editMode">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <fa-icon class="mx-2" [icon]="fafacebook"></fa-icon>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" [(ngModel)]="concert.fblink">
+                </div>
+
+                <!-- Ticket editing-->
+                <div class="input-group my-2" *ngIf="editMode">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <fa-icon class="mx-2" [icon]="faticket"></fa-icon>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" [(ngModel)]="concert.buylink">
+                </div>
+
+                <!-- Date -->
+                <div *ngIf="concert.date && !editMode" class="typewriter-font">
+                    <fa-icon class="mx-2" [icon]="facalendar"></fa-icon>
+                    {{ concert.date | date: 'dd.MM.yyy'}}
+                </div>
+                <div class="input-group mt-2 mb-2" *ngIf="editMode">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <fa-icon class="mx-2" [icon]="facalendar"></fa-icon>
+                        </span>
+                    </div>
+                    <input type="date" class="form-control" [(ngModel)]="concert.date">
+                </div>
+
+                <!-- Location -->
+                <div *ngIf="concert.place && !editMode" class="typewriter-font">
+                    <fa-icon class="mx-2" [icon]="falocation"></fa-icon>
+                    {{ concert.place  }}
+                </div>
+                <div class="input-group mt-2 mb-2" *ngIf="editMode">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <fa-icon class="mx-2" [icon]="falocation"></fa-icon>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" [(ngModel)]="concert.place">
+                </div>
+
+                <!-- Description -->
+                <div class="my-5" *ngIf="!editMode" [innerHTML]="concert.description"></div>
+                <angular-editor *ngIf="editMode" [(ngModel)]="concert.description"></angular-editor>
+
+                <!-- Facebook-->
+                <a *ngIf="!editMode && !!concert.fblink" type="button" class="btn btn-cdarkblue m-2"
+                    [href]="concert.fblink" target="_blank">
+                    <fa-icon class="mx-2" [icon]="fafacebook"></fa-icon> Zur Facebook Veranstaltung
+                </a>
+
+                <!-- Ticket-->
+                <a *ngIf="!editMode && !!concert.buylink" type="button" class="btn btn-cdarkred m-2"
+                    [href]="concert.buylink" target="_blank">
+                    <fa-icon class="mx-2" [icon]="faticket"></fa-icon> Tickets
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="min-h-100vh bg-cdark text-white d-flex align-items-center" *ngIf="concertLoaded && !concert">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <h1>Konzert weg!</h1>
+                <h5 class="mb-4">Was ist hier passiert?</h5>
+                <div>
+                    Scheint so, als würde dieses Konzert nicht mehr existieren. Miste Kiste! Du findest aber bestimmt
+                    ein anderes gutes Konzert in unserer Liste!
+                </div>
+            </div>
+            <div class="col-lg-5 offset-lg-1 p-5">
+                <img class="img-fluid" src="../../../../assets/undraw_page_not_found_su7k.svg" class="img-fluid"
+                    alt="404 not found" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-next-shows></app-next-shows>

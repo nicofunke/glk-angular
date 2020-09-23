@@ -1,159 +1,70 @@
-/* You can add global styles to this file, and also import other style files */
+@import "custom-bootstrap.scss";
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "custom-animations.scss";
 
-/**
- * Colors
- **/
-$color-orange: #d74e09;
-$color-dark-red: #621708;
-$color-light-red: #941b0c;
-$color-yellow: #f6aa1c;
-
-$color-facebook: #3b5998;
-
-$color-gray-9: #d2d2d2;
-$color-gray-8: #bcbcbc;
-$color-gray-7: #a6a6a6;
-$color-gray-6: #909090;
-$color-gray-5: #7a7a7a;
-$color-gray-4: #646464;
-$color-gray-3: #4e4e4e;
-$color-gray-2: #383838;
-$color-gray-1: #222222;
-$color-gray-0: #0c0c0c;
-
-/**
- * Font sizes
- **/
-$font-size-tiny: 8px;
-$font-size-smaller: 12px;
-$font-size-small: 14px;
-$font-size-regular: 16px;
-$font-size-medium: 18px;
-$font-size-big: 24px;
-$font-size-bigger: 28px;
-$font-size-biggest: 32px;
-$font-size-huge: 55px;
-
-/**
-  * Fonts
-  **/
-@font-face {
-  font-family: "Open_Sans";
-  src: url("~src/assets/fonts/Open_Sans/OpenSans-Regular.ttf") format("truetype");
-}
-@font-face {
-  font-family: "merriweather";
-  src: url("~src/assets/fonts/Open_Sans/OpenSans-Italic.ttf") format("truetype");
-  font-style: italic;
-}
-@font-face {
-  font-family: "Open_Sans";
-  src: url("~src/assets/fonts/Open_Sans/OpenSans-Bold.ttf") format("truetype");
-  font-weight: bold;
-}
-@font-face {
-  font-family: "Open_Sans";
-  src: url("~src/assets/fonts/Open_Sans/OpenSans-Bolditalic.ttf") format("truetype");
-  font-weight: bold;
-  font-style: italic;
-}
-
-/**
- * Basic Elements
- **/
-
-body {
-  margin: 0;
-  font-family: Open_Sans, Verdana, Arial, Courier;
-  overflow-y: scroll;
-  background-color: $color-gray-9;
-}
-
-// Links
-// Hint: !important is necessary to overwrite standard bootstrap hyperlinks
-$link-underline-color: $color-gray-3;
+// Main elements
 a {
-  color: inherit !important; 
-  text-decoration: none !important;
-  box-shadow: inset 0 0px 0 white, inset 0 -1px 0 $link-underline-color;
-  position: relative;
+    color: $cred;
+    &:hover {
+        color: $cdarkred;
+        text-decoration: none;
+    }
+}
 
-  &:hover {
+// Typewriter font
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap");
+.typewriter-font {
+    font-family: "Courier Prime", monospace;
+}
+
+// Custom classes
+.h-100vh {
+    height: 100vh;
+}
+
+.min-h-100vh {
+    min-height: 100vh;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.bg-none {
+    background-color: hsla(255, 255, 255, 0);
+}
+
+.text-shadow {
+    text-shadow: 1px 1px 1px black;
+}
+
+.bg-fixed-cover-darken {
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-image: linear-gradient( black, $cdark);
+        opacity: 0.96;
+    }
+}
+
+.bg-concert {
+    background-image: url(/assets/concert1.png);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.no-hover-underline:hover {
+    text-decoration: none;
+}
+
+.cursor-pointer:hover {
     cursor: pointer;
-  }
-}
-
-a::after {
-  content: "";
-  width: 100%;
-  height: 0px;
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  transition: all 300ms ease-in-out;
-  mix-blend-mode: normal;
-  background-color: rgba($link-underline-color, 0.4);
-}
-
-a:hover::after {
-  height: 100%;
-}
-
-*:focus {
-  outline: 0; // Remove blue border in chrome
-}
-
-//headlines
-h1 {
-  font-size: $font-size-huge;
-  font-weight: 500;
-}
-
-h2 {
-  font-size: $font-size-biggest;
-  font-weight: 600;
-}
-
-// Main text container
-div.text-container {
-  max-width: 750px;
-  margin: auto;
-  padding: 0 8px;
-}
-
-div#app-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  overflow-x: hidden;
-}
-
-div.content-container {
-  margin-left: 4%;
-  margin-right: 4%;
-  line-height: 1.75em;
-  padding-top: 10px;
-  padding-bottom: 20px;
-  font-size: $font-size-regular;
-  background-color: white;
-  position: relative;
-  border-radius: 5px;
-  box-shadow: 4px 4px 7px rgba($color-gray-1, 0.3);
-
-  
-  h2 {
-    margin-bottom: 20px;
-    margin-top: 30px;
-  }
-}
-
-.embedded-video {
-  background-image: linear-gradient(160deg, $color-gray-2, $color-gray-0);
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-  padding: 20px 0;
 }

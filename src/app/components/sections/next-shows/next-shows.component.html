@@ -1,0 +1,61 @@
+<div class="min-h-100vh bg-cgray text-white  d-flex align-items-center py-5">
+    <div class="container py-5 my-5">
+        <div class="text-center">
+            <h1>Nächste Shows</h1>
+            <!-- Text if concerts exist-->
+            <h5 *ngIf="!! (nextConcerts$ | async)" class="mb-4">Das sind unsere nächsten geplanten Konzerte</h5>
+            <div *ngIf="!! (nextConcerts$ | async)">
+                Unser Ziel ist es das ganze Jahr durchgängig gute Konzerte mit mittelgroßen bis zu internationalen
+                Headlinern zu bieten.<br />
+                Dabei beschränken wir unsere Konzerte nicht nur auf Metal und Hardcore.<br />
+                Wir haben auch immer Konzerte aus anderen Genres, wie zum Beispiel Rap oder Punk Rock im Angebot.<br />
+            </div>
+
+            <!-- Loading spinner-->
+            <div *ngIf="!(noConcertsAvailable$ | async) && ! (nextConcerts$ | async)" class="text-cred my-5" >
+                <h1 class="spinner-grow display-1 " role="status">
+                </h1>
+                <div>Lade Konzerte...</div>
+            </div>
+
+            <!-- Text if no concerts exist-->
+            <div *ngIf="noConcertsAvailable$ | async">
+                <div>
+                    Scheint so als hätten wir in nächster Zeit keine Konzerte geplant.<br />
+                    Aber nicht den Kopf hängen lassen! Wir arbeiten schon an neuen Shows!
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-7 col-md-9 my-4">
+                        <img class="img-fluid" src="../../../../assets/undraw_Tree_swing_646s.svg" class="img-fluid"
+                            alt="waiting for new concerts" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row my-4">
+            <div *ngFor="let concert of (nextConcerts$ | async)" class="col-md-6 col-lg-4 px-2 py-5 my-5">
+                <a [routerLink]="'/concert/' + concert.id" class="concert-card">
+                    <img [src]="getImageLink(concert.picture)" class="thumbnail-image rounded shadow" />
+                    <div class="p-4 text-center">
+                        <h5>{{concert.bands}}</h5>
+                        <div class="typewriter-font my-2">
+                            {{concert.date | date:'dd.MM.yyyy'}}
+                        </div>
+                        <h4 class="d-none d-md-block">
+                            <a *ngIf="!!concert.fblink" [href]="concert.fblink" target="_blank">
+                                <fa-icon class="mx-2 link-icon" [icon]="fafacebook"></fa-icon>
+                            </a>
+                            <a *ngIf="!!concert.buylink" [href]="concert.buylink" target="_blank">
+                                <fa-icon class="mx-2 link-icon" [icon]="faTicket"></fa-icon>
+                            </a>
+                            <a [routerLink]="'/concert/' + concert.id">
+                                <fa-icon class="mx-2 link-icon" [icon]="faangleright"></fa-icon>
+                            </a>
+                        </h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

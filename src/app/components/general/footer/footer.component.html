@@ -1,0 +1,47 @@
+<div class="bg-cgray text-light px-5 pt-5 pb-3">
+    <br class="my-3" />
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <h4>Göttingen Live Kultur e.V.</h4>
+            <h4>
+                <a href="https://www.facebook.com/goettingenlivekultur/" target="_blank">
+                    <fa-icon class="mr-2" [icon]="fafacebook"></fa-icon>
+                </a>
+                <a href="https://www.instagram.com/goettingen_live_kultur_e.v/" target="_blank">
+                    <fa-icon class="mx-2" [icon]="faInstagram"></fa-icon>
+                </a>
+                <a href="https://www.youtube.com/channel/UCnTfPXbl6GFfBR5w_n1g_Zg" target="_blank">
+                    <fa-icon class="mx-2" [icon]="faYoutube"></fa-icon>
+                </a>
+                <a href="mailto:goettingenhc@gmail.com" target="_blank">
+                    <fa-icon class="mx-2" [icon]="faEnvelope"></fa-icon>
+                </a>
+            </h4>
+        </div>
+        <div class="col-md-4 mb-3">
+            <h6 class="text-dark">Inhalt</h6>
+            <div><a routerLink="/home">Home</a></div>
+            <div><a routerLink="/concerts">Konzerte</a></div>
+            <div><a routerLink="/contact">Kontakt</a></div>
+            <div><a routerLink="/imprint">Impressum</a></div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <h6 class="text-dark mb-4">Kontakt</h6>
+            <a href="mailto:goettingenhc@gmail.com">
+                <button type="button" class="btn btn-cdarkred">
+                    <fa-icon class="mx-2" [icon]="faEnvelope"></fa-icon>Schreib uns eine E-mail
+                </button>
+            </a>
+            <div *ngIf="userService.username$ | async" class="my-2">
+                <fa-icon class="mx-2" [icon]="fauser"></fa-icon>Angemeldet als {{ userService.username$ | async }}
+                <a (click)="userService.logout()" class="text-cred cursor-pointer"> Logout</a>
+            </div>
+        </div>
+    </div>
+    <br class="my-5" />
+    <hr class="mt-5 border-dark" />
+    <div class="text-center text-dark">
+        © Göttingen Live Kultur e.V.
+        <a class="text-dark" routerLink="/imprint">Impressum</a>
+    </div>
+</div>

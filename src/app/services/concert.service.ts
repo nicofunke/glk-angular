@@ -15,6 +15,7 @@ export class ConcertService {
    * Backend Paths
    */
   public PATH_NEXT_CONCERTS = "getNextConcerts";
+  public PATH_LAST_CONCERTS = "getLastConcerts";
   public PATH_SINGLE_CONCERT = "getConcert";
   public PATH_SAVE_CONCERT = "saveConcert";
   public PATH_DELETE_CONCERT = "deleteConcert";
@@ -30,6 +31,7 @@ export class ConcertService {
   };
 
   private nextConcerts: Concert[];
+  private lastConcerts: Concert[];
 
   constructor(private http: HttpClient) { }
 
@@ -37,27 +39,38 @@ export class ConcertService {
    * Returns an observable with all next concerts from the backend
    */
   getNextConcerts(): Observable<Concert[]> {
-    return !! this.nextConcerts ? of(this.nextConcerts)
-            : this.http.get<Concert[]>( environment.backendURL + this.PATH_NEXT_CONCERTS ).pipe(
-              tap( concerts => this.nextConcerts = concerts),
-              catchError( err => of(undefined))
-            );
+    return !!this.nextConcerts ? of(this.nextConcerts)
+      : this.http.get<Concert[]>(environment.backendURL + this.PATH_NEXT_CONCERTS).pipe(
+        tap(concerts => this.nextConcerts = concerts),
+        catchError(err => of(undefined))
+      );
+  }
+
+  /**
+   * Returns an observable with all last concerts from the backend
+   */
+  getLastConcerts(): Observable<Concert[]> {
+    return !!this.lastConcerts ? of(this.lastConcerts)
+      : this.http.get<Concert[]>(environment.backendURL + this.PATH_LAST_CONCERTS).pipe(
+        tap(concerts => this.lastConcerts = concerts),
+        catchError(err => of(undefined))
+      );
   }
 
   /**
    * Returns an observable with detailed information of a specific concert
    * @param id  id of the concert
    */
-  getConcertDetails( id: number): Observable<Concert> {
+  getConcertDetails(id: number): Observable<Concert> {
     const outputConcert: Concert = this.nextConcerts ?
-          this.nextConcerts.find( concert => concert.id === id.toString() ) : undefined;
+      this.nextConcerts.find(concert => concert.id === id.toString()) : undefined;
 
     // TODO: look in previousConcerts
     return outputConcert ? of(outputConcert) :
-         this.http.post<Concert>(environment.backendURL + this.PATH_SINGLE_CONCERT ,
-            {id: id}, this.httpOptions ).pipe(
-            catchError( err => of(undefined))
-         );
+      this.http.post<Concert>(environment.backendURL + this.PATH_SINGLE_CONCERT,
+        { id: id }, this.httpOptions).pipe(
+          catchError(err => of(undefined))
+        );
   }
 
   /**
@@ -69,7 +82,7 @@ export class ConcertService {
     this.http.post(environment.backendURL + this.PATH_SAVE_CONCERT, concert, this.httpOptions).pipe(
       // TODO: Add Toasts
       // tap( x => console.log("Gespeichert!, x")),
-      catchError( err => {console.log("Error: Speichern des Konzerts fehlgechlagen"); return of(undefined); })
+      catchError(err => { console.log("Error: Speichern des Konzerts fehlgechlagen"); return of(undefined); })
     ).subscribe();
   }
 
@@ -79,10 +92,10 @@ export class ConcertService {
    * @return            boolean, if deleted successfully
    */
   deleteConcert(concertId: string): void {
-    this.http.post(environment.backendURL + this.PATH_DELETE_CONCERT, {id: concertId}, this.httpOptions).pipe(
+    this.http.post(environment.backendURL + this.PATH_DELETE_CONCERT, { id: concertId }, this.httpOptions).pipe(
       // TODO: Add Toasts
       // tap( x => console.log("Gespeichert!, x")),
-      catchError( err => {console.log("Error: Speichern des Konzerts fehlgechlagen"); return of(undefined); })
+      catchError(err => { console.log("Error: Speichern des Konzerts fehlgechlagen"); return of(undefined); })
     ).subscribe();
   }
 

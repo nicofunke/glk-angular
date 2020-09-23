@@ -1,0 +1,31 @@
+<div class="min-h-100vh bg-cdark text-light py-5">
+    <div class="text-center py-5 mt-5">
+        <h1>Vergangene Konzerte</h1>
+        <span>
+            Wir sind stolz bereits auf viele Jahre erfolgreiche Konzerte zurück blicken zu können.<br/>
+            Hier ein kleiner Überblick unserer zuletzt stattgefundenen Shows.
+        </span>
+    </div>
+    <div class="mb-5 container" *ngIf="!!(displayedConcerts$ | async)">
+        <div class="row no-gutters" >
+            <div *ngFor="let concert of (displayedConcerts$ | async)"
+                class="col-lg-3 col-md-6 p-1">
+                <a [routerLink]="'/concert/' + concert.id">
+                    <div [style.background-image]="'url(' + getImageLink( concert.picture) + ')'"
+                        class="thumbnail text-center d-flex align-items-center justify-content-center">
+                        <div class="typewriter-font p-2 m-2 bg-black text-light">
+                            <h6>{{ concert.bands }}</h6>
+                            <div>{{ concert.date | date: 'dd.MM.yyyy'}}</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="text-center my-4">
+            <button *ngIf="(moreConcertsAvailable$ | async)" type="button" class="btn btn-cdarkred"
+                (click)="showMoreConcerts()">
+                <fa-icon class="mx-2" [icon]="famore"></fa-icon> Mehr laden
+            </button>
+        </div>
+    </div>
+</div>

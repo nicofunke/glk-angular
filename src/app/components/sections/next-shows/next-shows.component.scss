@@ -1,0 +1,27 @@
+@import "../../../../custom-bootstrap.scss";
+
+.concert-card{
+    color: $clight;
+    &:hover {
+        text-decoration: none;
+        color: $clightblue;
+    }
+}
+
+.thumbnail-image {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+.link-icon {
+    color: $clight;
+    &:hover {
+        color: $clightblue !important;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
+

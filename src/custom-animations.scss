@@ -1,0 +1,111 @@
+/**
+ * This file contains classes to add animations on appear 
+ **/
+
+/**
+ * Classes to use the animations 
+ **/
+.slow-fadein{
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+    -ms-animation: fadein 2s; /* Internet Explorer */
+    -o-animation: fadein 2s; /* Opera < 12.1 */
+    animation: fadein 2s;
+}
+
+.fadein {
+    -webkit-animation: fadein 0.7s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 0.7s; /* Firefox < 16 */
+    -ms-animation: fadein 0.7s; /* Internet Explorer */
+    -o-animation: fadein 0.7s; /* Opera < 12.1 */
+    animation: fadein 0.7s;
+}
+
+.slide-down {
+    -webkit-animation: slide-down 0.7s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: slide-down 0.7s; /* Firefox < 16 */
+    -ms-animation: slide-down 0.7s; /* Internet Explorer */
+    -o-animation: slide-down 0.7s; /* Opera < 12.1 */
+    animation: slide-down 0.7s;
+}
+
+.slow-slide-down {
+    -webkit-animation: slide-down 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: slide-down 2s; /* Firefox < 16 */
+    -ms-animation: slide-down 2s; /* Internet Explorer */
+    -o-animation: slide-down 2s; /* Opera < 12.1 */
+    animation: slide-down 2s;
+}
+
+/**
+ * Keyframes for the animations
+ **/ 
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    } 
+    to {
+        opacity: 0.9;
+        transform: translateY(0);
+    } 
+}
+
+/* Firefox < 16 */
+@-moz-keyframes slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    } 
+    to {
+        opacity: 0.9;
+        transform: translateY(0);
+    } 
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    } 
+    to {
+        opacity: 0.9;
+        transform: translateY(0);
+    } 
+}
+
+/* Internet Explorer */
+@-ms-keyframes slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    } 
+    to {
+        opacity: 0.9;
+        transform: translateY(0);
+    } 
+}
