@@ -53,6 +53,11 @@ class Connection
 		$config = parse_ini_file('../../database.ini');
 		$this->mysqli = new mysqli($config['host'], $config['username'], $config['password'], $config['dbname']);
 
+		if (!$this->mysqli->set_charset("utf8")) {
+			printf("Error loading character set utf8: %s\n", $this->mysqli->error);
+			exit();
+		}
+		
 		/* check connection */
 		if ($this->mysqli->connect_errno) {
 			return false;
@@ -188,16 +193,16 @@ class Connection
 			return false; //Connection failed
 		}
 		// !! ---Escape everything for SQL
-		$bands = $this->mysqli->real_escape_string($input['bands']);
-		$date = $this->mysqli->real_escape_string($input['date']);
-		$place = $this->mysqli->real_escape_string($input['place']);
-		$doors = $this->mysqli->real_escape_string($input['doors']);
-		$begin = $this->mysqli->real_escape_string($input['begin']);
-		$fblink = $this->mysqli->real_escape_string($input['fblink']);
-		$buylink = $this->mysqli->real_escape_string($input['buylink']);
-		$description = $this->mysqli->real_escape_string($input['description']);
-		$promoter = $this->mysqli->real_escape_string($input['promoter']);
-		$id = $this->mysqli->real_escape_string($input['id']);
+		$bands 		= mb_convert_encoding($this->mysqli->real_escape_string($input['bands']), "LATIN1");
+		$date 		= mb_convert_encoding($this->mysqli->real_escape_string($input['date']), "LATIN1");
+		$place 		= mb_convert_encoding($this->mysqli->real_escape_string($input['place']), "LATIN1");
+		$doors 		= mb_convert_encoding($this->mysqli->real_escape_string($input['doors']), "LATIN1");
+		$begin 		= mb_convert_encoding($this->mysqli->real_escape_string($input['begin']), "LATIN1");
+		$fblink 	= mb_convert_encoding($this->mysqli->real_escape_string($input['fblink']), "LATIN1");
+		$buylink 	= mb_convert_encoding($this->mysqli->real_escape_string($input['buylink']), "LATIN1");
+		$description= mb_convert_encoding($this->mysqli->real_escape_string($input['description']), "LATIN1");
+		$promoter 	= mb_convert_encoding($this->mysqli->real_escape_string($input['promoter']), "LATIN1");
+		$id 		= mb_convert_encoding($this->mysqli->real_escape_string($input['id']), "LATIN1");
 
 		// Upload picture if image is base64 input
 		if (preg_match('/data:image.*/', $input['picture'])) {
@@ -243,15 +248,15 @@ class Connection
 		}
 
 		// !! ---Escape everything for SQL
-		$bands = $this->mysqli->real_escape_string($input['bands']);
-		$date = $this->mysqli->real_escape_string($input['date']);
-		$place = $this->mysqli->real_escape_string($input['place']);
-		$doors = $this->mysqli->real_escape_string($input['doors']);
-		$begin = $this->mysqli->real_escape_string($input['begin']);
-		$fblink = $this->mysqli->real_escape_string($input['fblink']);
-		$buylink = $this->mysqli->real_escape_string($input['buylink']);
-		$description = $this->mysqli->real_escape_string($input['description']);
-		$promoter = $this->mysqli->real_escape_string($input['promoter']);
+		$bands 		= mb_convert_encoding($this->mysqli->real_escape_string($input['bands']), "LATIN1");
+		$date 		= mb_convert_encoding($this->mysqli->real_escape_string($input['date']), "LATIN1");
+		$place 		= mb_convert_encoding($this->mysqli->real_escape_string($input['place']), "LATIN1");
+		$doors 		= mb_convert_encoding($this->mysqli->real_escape_string($input['doors']), "LATIN1");
+		$begin 		= mb_convert_encoding($this->mysqli->real_escape_string($input['begin']), "LATIN1");
+		$fblink 	= mb_convert_encoding($this->mysqli->real_escape_string($input['fblink']), "LATIN1");
+		$buylink 	= mb_convert_encoding($this->mysqli->real_escape_string($input['buylink']), "LATIN1");
+		$description= mb_convert_encoding($this->mysqli->real_escape_string($input['description']), "LATIN1");
+		$promoter 	= mb_convert_encoding($this->mysqli->real_escape_string($input['promoter']), "LATIN1");
 
 		// Upload picture
 		$image_path = "img/concert/concert" . $promoter .  $date .  ".png";
